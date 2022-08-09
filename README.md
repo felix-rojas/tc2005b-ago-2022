@@ -4,7 +4,7 @@ Repositorio para el semestre Ago-Dic 2022 para construcción de software y toma 
 
 ## Malla de evaluación
 
-> Requiere hacer login institucional
+> Requiere hacer login institucional <br>
 [Link a malla de evaluación](https://docs.google.com/spreadsheets/d/1GwAECcTjvMgHtrRmQu_WmfE4yjC0q-kDy_c1HsV78wc/edit?usp=sharing)
 
 ## Medios de Contacto
