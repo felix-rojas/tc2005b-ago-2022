@@ -18,5 +18,5 @@ En orden de preferencia y velocidad de respuesta
 
 ## Pagina web personal
 
-Para el laboratorio 1:
+Para el laboratorio 1, en unos momentos lo importo:
 [Página web simple HTML](https://felix-rojas.github.io/)
