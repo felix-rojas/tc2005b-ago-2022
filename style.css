@@ -1,0 +1,17 @@
+h1 {
+  font-family: "Courier New", Courier, monospace;
+}
+.pulpo {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+.pulpito {
+  font-family: Arial, Helvetica, sans-serif;
+  color: gray;
+}
+
+#gelatina:hover {
+  font-family: "Courier New", Courier, monospace;
+  font-size: xx-large;
+  color: rebeccapurple;
+}
