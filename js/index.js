@@ -61,3 +61,11 @@ console.assert(2 === 2);
 console.error("I am actually not an error");
 
 anon();
+
+const boton = document.getElementById("pulpo");
+
+boton.onclick = () => {
+    console.log("Click!");
+    document.getElementById("contenedor_imagen").innerHTML = 
+    '<img src ="https://ichef.bbci.co.uk/news/640/cpsprodpb/7E5E/production/_122305323_1920xgettyimages-1136409408.jpg" alt="Imagen de pulpo nadando en el mar con movimientos dinámicos oscilatorios">';
+} 
