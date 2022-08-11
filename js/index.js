@@ -27,6 +27,19 @@ var pulpo_cantor = "Timothy";
 const pulpo_perfecto = "Perfec-pulpo es inmutable y único, por tanto: perfecto";
 
 
+// Arrays, etc.
+const menu = ["Papas", "Sopa de papa"];
+console.log(menu);
+menu.length = 3; // crece el arreglo y lo llena con <no element>
+console.log(menu);
+menu.length = 1; // corta el arreglo
+console.log(menu);
+
+// Associative arrays (similar to a dictionary)
+const menuNuevo = ["Papas", "Sopa de papa"];
+menu["postre"] = "Papa dulce";
+console.log(menu);
+
 // console function to print value assigned to prototype
 console.log(pulpo);
 console.log(pulpo_cantor);
