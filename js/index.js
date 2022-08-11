@@ -1,9 +1,34 @@
-const boton = document.getElementById("pulpo");
+// ----------------------------------------------------------------------- //
+// Entrada: un número pedido con un prompt.
+// Salida: Una tabla con números del 1 al número dado con sus cuadrados y cubos.
+// ----------------------------------------------------------------------- //
+function tablaNums(n) {
+//   const header1 =
+//   '<table><tr><th colspan=';
+//   const colspan_size = n;
+//   const header2 = '>Numero, Cuadrados, Cubos</th></tr>'
+//   let header = header1+colspan_size+header2;
+//   document.write(header);
+  document.write('<table>');
+  for (let column = 1; column <= 3; column++) {
+    document.write("<tr>");
+    document.write('<td><b> n'+'<sup>'+column+'</sup></b>');
+    for (let index = 1; index <= n; index++) {
+      document.write("<td>" + (Math.pow(index, column)) + "</td>");
+    }
+    document.write("</tr>");
+  }
+  document.write('</table>');
+}
 
+// ----------------------------------------------------------------------- //
+// PULPO - VIEWER 3000
+// ----------------------------------------------------------------------- //
+const boton = document.getElementById("pulpo");
 boton.onclick = () => {
-    document.getElementById("contenedor_imagen").innerHTML = 
+  document.getElementById("contenedor_imagen").innerHTML =
     '<img src ="https://ichef.bbci.co.uk/news/640/cpsprodpb/7E5E/production/_122305323_1920xgettyimages-1136409408.jpg" alt="Imagen de pulpo nadando en el mar con movimientos dinámicos oscilatorios">';
-} 
+};
 
 // ----------------------------------------------------------------------- //
 // THIS BLOCK IS JUST HERE FOR REFERENCE, USELESS AND PESTERING OTHERWISE //
@@ -25,7 +50,6 @@ boton.onclick = () => {
 // // funciones anónimas asignada a variables
 // const anon = () => console.log("anonymous");
 
-
 // // var, const, console (log, info , warn, error)
 // // variable local (block-scoped local)
 // let pulpo = "Paul";
@@ -35,7 +59,6 @@ boton.onclick = () => {
 
 // // variable (const)
 // const pulpo_perfecto = "Perfec-pulpo es inmutable y único, por tanto: perfecto";
-
 
 // // Arrays, etc.
 // const menu = ["Papas", "Sopa de papa"];
@@ -71,4 +94,3 @@ boton.onclick = () => {
 // console.error("I am actually not an error");
 
 // anon();
-

@@ -9,13 +9,19 @@ body {
     max-width: 50em;
     line-height: normal;
 }
+
 .pregunta {
   font-family: Arial, Helvetica, sans-serif;
   color: black;
 }
+
 .respuesta {
   font-family: Arial, Helvetica, sans-serif;
   color: gray;
+}
+
+table {
+  text-align: center;
 }
 
 code,
