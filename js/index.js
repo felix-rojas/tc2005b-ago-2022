@@ -9,10 +9,11 @@ function tablaNums(n) {
 //   const header2 = '>Numero, Cuadrados, Cubos</th></tr>'
 //   let header = header1+colspan_size+header2;
 //   document.write(header);
+
   document.write('<table>');
   for (let column = 1; column <= 3; column++) {
     document.write("<tr>");
-    document.write('<td><b> n'+'<sup>'+column+'</sup></b>');
+    document.write('<td><b>n'+'<sup>'+column+'</sup></b>');
     for (let index = 1; index <= n; index++) {
       document.write("<td>" + (Math.pow(index, column)) + "</td>");
     }
@@ -20,6 +21,14 @@ function tablaNums(n) {
   }
   document.write('</table>');
 }
+
+// ----------------------------------------------------------------------- //
+// TABLA - VIEWER 3000
+// ----------------------------------------------------------------------- //
+const tabla = document.getElementById("tabla");
+tabla.onsubmit = () => {
+  document.getElementById("tabla_potencias").innerHTML = tablaNums();
+};
 
 // ----------------------------------------------------------------------- //
 // PULPO - VIEWER 3000

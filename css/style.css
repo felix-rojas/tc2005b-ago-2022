@@ -24,6 +24,11 @@ table {
   text-align: center;
 }
 
+th, td {
+  border-color: #5b8080;
+  border-style: ridge;
+}
+
 code,
 pre {
   background: rgb(147, 144, 144);
