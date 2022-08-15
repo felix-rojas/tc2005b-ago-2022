@@ -7,74 +7,7 @@
   <body>
     <h1 style="color: teal">PULPOS BAYBEE</h1>
     <h3 style="color: rgb(85, 145, 113)">ahora con JS</h3>
-    <h2>Laboratorio 4</h2>
-    <p>
-      ¿Qué diferencias y semejanzas hay entre Java y JavaScript? <br />
-      Java es un programa del paradigma de objetos, al igual que JavaScript.
-      JavaScript, a diferencia de Java es un lenguaje de alto nivel y es de
-      "scripting" dado que puedes correr cualquier comando sin compilar.
-    </p>
-    <p>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</p>
-<pre><code>// constructor de objeto de la clase Date, podemos generar objetos Date usando el formato ISO
- Date(); 
-
- //Obtiene la fecha completa en ISO 8601
- Date.now(); 
-
- //Obtiene los milisegundos transcurridos desde el 1 de Enero de 1970 a las 00:00:00
- Date.UTC(); 
-
- // Convierte una dateString en formato ISO 8601
- Date.parse(); 
-
- // Obtiene el año actual, en este caso 2022
- Date.getFullYear(); </code></pre>
-    <p>¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</p>
-<pre><code>// inicializamos array
-const miLista = [];  
-
-// El método length cambia la longitud y lo llena de elementos vacíos
-miLista.length() = 5; 
-
-// El método push cambia la longitud +1 y asigna el elemento al final
-miLista.push("tacos"); 
-
-// find index encuentra el primer elemento que corresponda al valor insertado
-// regresa la posicion en el arreglo
-// regresa -1 si no lo encuentra 
-miLista.findIndex("tacos"); 
-
-// find encuentra el primer elemento que cumpla la condición
-// regresa el elemento del array
-// regresa undefined si no lo encuentra 
-const noExiste = miLista.find(elemento => elemento === "taco"); // undefined 
-const siExiste = miLista.find(elemento => elemento === "tacos"); 
-
-
-// at nos retorna el elemento en la posición indicada
-// los valores positivos recorren el array a la derecha ->
-// los valores negativos recorren el array a la izquierda <-
-miLista.at(-1); //"tacos"
-
-// at nos permite asignar un elemento en la posición indicada también
-miLista.at(-3) = "tostadas"; // inserta el valor "tostadas" en la antepenúltima posición
-
-// isArray nos permite saber si realmente es un array
-miLista.isArray(); //true
-misTacos.isArray(); //false
-</code></pre>
-    <p>¿Cómo se declara una variable con alcance local dentro de una función? <br>
-    Con la frase <code>let</code> o podemos usar <code>const</code> si no cambiamos la variable
-    </p>
-    <p>
-      ¿Qué implicaciones tiene utilizar variables globales dentro de funciones? <br>
-      Que cualquier función que tenga un nombre igual puede cambiar su valor. O alguien en el explorador puede reasignar el valor de la variable a lo que deseen. 
-    </p>
-    <button id="pulpo">Ver pulpo</button>
-    <form id="tabla">Tabla de cuadrados</form>
-    <!-- Aquí JS sabe donde aplicar el cambio -->
-    <div id="contenedor_imagen"></div>
-    <div id="tabla_potencias"></div>
+    <h2>Laboratorio 6</h2>
     <script src="js/index.js"></script>
   </body>
 </html>
