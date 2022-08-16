@@ -25,6 +25,3 @@ Para el laboratorio 1, en unos momentos lo importo:
 
 1. main
 2. develop
-3. lab1 (done)
-4. lab2 (setting up this repo, done)
-5. lab3
