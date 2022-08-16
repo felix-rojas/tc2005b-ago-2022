@@ -25,10 +25,8 @@ function tablaNums(n) {
 // ----------------------------------------------------------------------- //
 // TABLA - VIEWER 3000
 // ----------------------------------------------------------------------- //
-const tabla = document.getElementById("tabla");
-tabla.onsubmit = () => {
-  document.getElementById("tabla_potencias").innerHTML = tablaNums();
-};
+let tabla = document.getElementById("tabla");
+document.getElementById("tabla_potencias").innerHTML = tablaNums();
 
 // ----------------------------------------------------------------------- //
 // PULPO - VIEWER 3000
