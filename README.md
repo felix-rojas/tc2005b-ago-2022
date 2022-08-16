@@ -23,8 +23,14 @@ Para el laboratorio 1, en unos momentos lo importo:
 
 ## Current branches
 
-1. main
-2. develop
-3. lab1 (done)
-4. lab2 (setting up this repo, done)
-5. lab3
+1. main       //
+2. develop    //
+3. lab5       //
+4. lab6       //
+5. react/lab5 // rama para experimentar con react + tailwind
+
+## What needs to be done
+
+1. lab4 //activities not finished, but objectives are understood
+2. lab5 //tailwind css, not done yet
+3. lab6 //done in materialize
