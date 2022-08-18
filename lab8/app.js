@@ -1,7 +1,11 @@
 const filesystem = require("fs"); // handle files and paths
 const http = require('http');
+
+// we have not set a response, so it throws an empty body
 const server = http.createServer( (request, response) => {
     console.log(http.request.url);
+    response.setHeader('Content-Type', 'text/html');
+    response.end();
 });
 
 // cannot create directory, use the function to make directory
