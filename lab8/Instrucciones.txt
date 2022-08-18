@@ -1,0 +1,6 @@
+Instrucciones
+    Una función que reciba un arreglo de números y devuelva su promedio.
+    Una función que reciba un string y escriba el string en un archivo de texto. Apóyate del módulo fs.
+    Escoge algún problema que hayas implementado en otro lenguaje de programación, y dale una solución en js que se ejecute sobre node.
+
+Crea una pequeña aplicación web que al enviar una petición al servidor, devuelva una de las páginas que creaste anteriormente en tus laboratorios. 
