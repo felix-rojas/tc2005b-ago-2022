@@ -53,7 +53,7 @@ Hee hoo pee pee poop pooop
 |Lab5 | Experimenting witgh Tailwind CSS | |
 |Lab6 | Done | |
 |Lab7 | Done | |
-|Lab8 | ToDo | |
+|Lab8 | Done | |
 |Lab9 | ToDo | |
 |Lab10 | ToDo | |
 |Lab11 | ToDo | |
