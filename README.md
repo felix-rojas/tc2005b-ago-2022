@@ -23,8 +23,42 @@ Para el laboratorio 1, en unos momentos lo importo:
 
 ## Current branches
 
+<<<<<<< HEAD
 1. main
 2. develop
 
 
 Hee hoo pee pee poop pooop
+=======
+1. main       //
+2. develop    //
+3. lab5       //
+4. lab6       //
+5. react/lab5 // rama para experimentar con react + tailwind
+
+## What needs to be done
+
+1. lab4 //activities not finished, but objectives are understood
+2. lab5 //tailwind css, not done yet
+3. lab6 //done in materialize
+
+## Done so far
+
+| Lab | Status | Notes |
+| --- | ----- |  ----- |
+|Lab1 | Done | |
+|Lab2 | Done | |
+|Lab3 | Done | |
+|Lab4 | Done | |
+|Lab5 | Experimenting witgh Tailwind CSS | |
+|Lab6 | Done | |
+|Lab7 | Done | |
+|Lab8 | ToDo | |
+|Lab9 | ToDo | |
+|Lab10 | ToDo | |
+|Lab11 | ToDo | |
+|Lab12 | ToDo | |
+|Lab13 | ToDo | |
+|Lab14 | ToDo | |
+|Lab15 | ToDo | |
+>>>>>>> develop
