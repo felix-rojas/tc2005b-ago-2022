@@ -5,6 +5,7 @@ const http = require('http');
 const server = http.createServer( (request, response) => {
     console.log(http.request.url);
     response.setHeader('Content-Type', 'text/html');
+    response.write('<h1>Hee hoo, heres your petition :)</h1>')
     response.end();
 });
 
