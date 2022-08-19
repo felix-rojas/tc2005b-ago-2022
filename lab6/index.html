@@ -14,12 +14,12 @@
     <div class="nav-wrapper teal lighten-2">
       <a href="#" class="brand-logo">PULPOS BAYBEE</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a>Dummy button</a></li>
+        <li><a id="login_nav">Login</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Text Card Sample-->
+  <!-- Inicio sesión-->
   <div class="container">
     <div class="row">
       <form class="col s12">  
@@ -37,7 +37,7 @@
             <div class="row">
               <label for="password_verify">Retype Password</label>
               <input id="password_verify" type="password" class="validate" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"required></input>
-              <span class="helper-text" data-error="not valid" data-success="valid password">Use lowercase, uppercase & numbers</span>
+              <span id="password_verify_help"class="helper-text" data-error="not valid" data-success="valid password">Use lowercase, uppercase & numbers</span>
             </div>
             <a id="login" class="waves-effect waves-light btn">Login</a>
         </div>
