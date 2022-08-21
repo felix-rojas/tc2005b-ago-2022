@@ -15,6 +15,7 @@
       <a href="#" class="brand-logo">PULPOS BAYBEE</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a id="login_nav">Login</a></li>
+        <li><a href="./store.html" id="store">Store</a></li>
       </ul>
     </div>
   </nav>
@@ -25,7 +26,7 @@
       <form class="col s12">  
         <div class="row">
           <label for="username">Username</label>
-          <input placeholder="Type username here" id="username" pattern="(?=.*\d)(?=.*[a-z]).{8,}" type="text"
+          <input placeholder="Username must be at least 8 characters" id="username" pattern="(?=.*[a-z]).{8,}" type="text"
             class="validate" data-length="40"></input>
           </div>
           <span class="helper-text" data-error="invalid characters or too short" data-success="valid username"></span>
