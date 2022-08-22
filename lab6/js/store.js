@@ -44,9 +44,9 @@ accept_purchases.onclick = () => {
   compras.innerHTML =
       '<h4>Your purchases</h4>'+
       '<ul id ="purchases"  class="collection">'+
-      '<li class="collection-item">Costo Dumbos = '+dumbo*count_dumbo+'<a href="#!" class="secondary-content"><i class="material-icons">remove_circle</i></a></div></li>'+
-      '<li class="collection-item">Costo Common = '+common*count_common+'<a href="#!" class="secondary-content"><i class="material-icons">remove_circle</i></a></div></li>'+
-      '<li class="collection-item">Costo Common = '+squid*count_squid+'<a href="#!" class="secondary-content"><i class="material-icons">remove_circle</i></a></div></li>'+
+      '<li class="collection-item">Dumbos Cost = '+dumbo*count_dumbo+'<a href="#!" class="secondary-content"><i class="material-icons">remove_circle</i></a></div></li>'+
+      '<li class="collection-item">Common Cost = '+common*count_common+'<a href="#!" class="secondary-content"><i class="material-icons">remove_circle</i></a></div></li>'+
+      '<li class="collection-item">Squid Cost  = '+squid*count_squid+'<a href="#!" class="secondary-content"><i class="material-icons">remove_circle</i></a></div></li>'+
       '<li class="collection-item">Subtotal = '+subtotal_purchases+'<a href="#!" class="secondary-content"><i class="material-icons">remove_circle</i></a></div></li>'+
       '<li class="collection-item">IVA = '+(taxes*100-100)+' %</li>'+
       '<li class="collection-item">Total = '+total_purchases+'</li>'+
