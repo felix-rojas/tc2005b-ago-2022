@@ -1,18 +1,23 @@
 // libraries
+const http = require("http");
 const express = require("express");
 const app = express();
 
-// answer to request with body
-app.get("/", (req, res) => {
-  res.send("This webpage is useless, no css or anything :c");
-});
 
-// GET method route
-app.get("/", (req, res) => {
-  res.send("GET request to the homepage");
-});
+// Homepage
+app.get('/', (req, res) => {
+    console.log(req);
+    res.send('hello world');
+})
 
-// POST method route
-app.post("/", (req, res) => {
-  res.send("POST request to the homepage");
-});
+// sample page
+app.get('/sample', (req, res) => {
+    console.log(req);
+    res.send(sample_page);
+})
+
+
+
+console.log("Opening port on 3100");
+
+app.listen(3100);
