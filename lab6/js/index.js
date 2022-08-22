@@ -1,28 +1,51 @@
-const boton_cambio = document.getElementById("cambio_animo");
-const contenedor = document.getElementById("pulpo");
-let mood = "Feliz";
+const pass_verify = document.getElementById("password_verify");
+const pass = document.getElementById("password");
+const user = document.getElementById("username");
+const login_button = document.getElementById("login");
+const nav_login_button = document.getElementById("login_nav");
 
-const pulpo_happy = "https://img.fruugo.com/product/0/88/175395880_max.jpg"
-const pulpo_sad = "https://rukminim1.flixcart.com/image/416/416/kk8mcnk0/stuffed-toy/c/s/q/giftie-reversible-flip-octopus-plush-stuffed-toy-14-cm-14-giftie-original-imafzmszayf2nfh7.jpeg?q=70"
+let usuario = "";
+let contra = "";
+let verify = "";
+
+console.log(pass_verify.value)
+console.log(pass.value)
+console.log(user.value)
 
 
-const feliz = () => {
-  contenedor.innerHTML = '<img src="'+ pulpo_happy+ '" alt = pulpo feliz';
-  boton_cambio.innerText = "Feliz";
-  mood = "Feliz";
-};
 
-const triste = () => {
-  boton_cambio.innerText = "Triste";
-  contenedor.innerHTML = '<img src="'+ pulpo_sad+ '" alt = pulpo triste';
-  mood = "Triste";
-};
+user.onkeyup = () => {
+    usuario = user.value;
+    console.log(usuario);
+}
 
-// Default state
-triste();
+pass.onkeyup = () => {
+    contra = pass.value;
+    console.log(contra);
+}
 
-boton_cambio.onclick = () => {
-  if (mood === "Feliz") {
-    triste();
-  } else feliz();
-};
+pass_verify.onkeyup = () => {
+    verify = pass_verify.value;
+    console.log(verify);
+}
+
+
+login_button.onclick = () => {
+    if (verify !== contra) {
+        window.alert("Password missmatch")
+    } else {
+        window.alert("Succesful account creation")
+        login_button.innerText = "logout"
+        nav_login_button.innerText = "logout"
+    }
+}
+
+nav_login_button.onclick = () => {
+    if (verify !== contra) {
+        window.alert("Password missmatch")
+    } else {
+        window.alert("Succesful account creation")
+        login_button.innerText = "logout"
+        nav_login_button.innerText = "logout"
+    }
+}

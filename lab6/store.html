@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es-mx">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- <link type="text/css" rel="stylesheet" href="css/style.css" /> -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- header -->
+    <nav>   
+        <div class="nav-wrapper purple lighten-2">
+            <a href="#" class="brand-logo">Wallpaper Store, very legitimate</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a id="login_nav">Login</a></li>
+                <li><a href="./store.html" id="store">Store</a></li>
+                <li><a href="./index.html" id="home">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dumbo's Card -->
+    <div class="row">
+        <div class="col s12 m6 l3">
+            <div class="card">
+                <div class="card-image">
+                    <img
+                        src="https://oceanexplorer.noaa.gov/okeanos/explorations/ex1402/logs/apr28/media/dumbo-hires.jpg">
+                    <span class="card-title">Dumbo</span>
+                    <a id="shop_dumbo" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add_shopping_cart</i></a>
+                </div>
+                <div class="card-content">
+                    <p>I am a dumbo octopus. $150 USD</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Common Octopus' Card -->
+        <div class="col s12 m6 l3">
+            <div class="card">
+                <div class="card-image">
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Octopus2.jpg/1200px-Octopus2.jpg">
+                    <span class="card-title">Common</span>
+                    <a id="shop_common" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add_shopping_cart</i></a>
+                </div>
+                <div class="card-content">
+                    <p>I am a very simple octopus. $100 USD.
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+     <!-- Common Octopus' Card -->
+     <div class="col s12 m6 l3">
+        <div class="card">
+            <div class="card-image">
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Sepioteuthis_sepioidea_%28Caribbean_Reef_Squid%29.jpg/1280px-Sepioteuthis_sepioidea_%28Caribbean_Reef_Squid%29.jpg">
+                <span class="card-title">Squid</span>
+                <a id="shop_squid" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add_shopping_cart</i></a>
+            </div>
+            <div class="card-content">
+                <p>I am a very expensive Squid. $1000 USD.
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+      <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div id="purchases"class="modal-content">
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Accept purchases</a>
+    </div>
+  </div>
+
+    <div id = "accept_purchases" class="fixed-action-btn">
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Cart
+            <i class="large material-icons">add_shopping_cart</i>
+        </a>
+    </div>
+
+
+    <script src="js/store.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>M.AutoInit();</script>
+</body>
+
+</html>
