@@ -1,23 +1,17 @@
 // libraries
 const http = require("http");
-const express = require("express");
-const app = express();
+const file = require("fs")
+const bodyParser = require("body-parser");
+const url = require("url")
 
 
-// Homepage
-app.get('/', (req, res) => {
-    console.log(req);
-    res.send('hello world');
-})
+sample_site = file.readFileSync("./sample.html");
 
-// sample page
-app.get('/sample', (req, res) => {
-    console.log(req);
-    res.send(sample_page);
-})
-
+const server = http.createServer(function (request, response) {
+    response.writeHead(200, {'Content-Type': 'text/html'});
+    response.write(sample_site); 
+    response.end();
+}).listen(3100);
 
 
 console.log("Opening port on 3100");
-
-app.listen(3100);
