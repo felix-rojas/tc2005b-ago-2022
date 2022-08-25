@@ -42,5 +42,4 @@ app.use((request, response, next) => {
     response.send('La ruta no existe :( '+'<br><br><a href= "/sample"> Regresa a sample </a>');
   });
 
-// launch app on port 3000
 app.listen(3000);
