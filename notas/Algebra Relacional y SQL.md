@@ -1,40 +1,34 @@
-# Nones
+# Ejercicios Nones
 
 ## Ejercicio 1
 
 Nombre de actriz, fecha de nacimiento y título de la películas donde han sido parte del elenco mujeres (obtener sólo actrices, no actores).
 
-### Algebra
+Álgebra Relacional
 
-> Actrices = Sigma {Sexo = 'Femenino'} (Actor)
-> pi {Actriz.Nombre, Actriz.fechanacimiento, Elenco.titulo} (Actrices >< Elenco)
+**Actriz** = &sigma; {Sexo = 'Femenino'} (Actor)
 
-### SQL
+&pi; {**Actriz**.Nombre, **Actriz**.fechanacimiento, Elenco.titulo} (**Actriz** >< Elenco)
 
-```mysql
-
+```sql
 /* Vista Actrices */
 SELECT Actor.Nombre, Actor.FechaNacimiento, Elenco.Titulo
 FROM Actor, Elenco
 WHERE Sexo = 'Femenino'
-
 INNER JOIN
-
 Elenco ON Elenco.Nombre = Actor.Nombre;
 
 ```
 
-## Ejer 3
+## Ejercicio 3
 
 Nombre e importe de ventas de los productores que han producido películas en las que ha actuado Tom Cruise.
 
-### Algebra R
+&sigma; {Nombre='Tom Cruise'} (Elenco) ><
 
-   &sigma; {Nombre='Tom Cruise'} (Elenco) >< &pi; {Productor.nombre, Productor.importeventas} (Película >< Productor)
+&pi; {Productor.nombre, Productor.importeventas} (Película >< Productor)
 
-### SQL
-
-```mysql
+```sql
 SELECT Productor.nombre, Productor.importeventas
 FROM Productor pro, Elenco e, Pelicula p
 WHERE e.nombre = 'Tom Cruise', 
@@ -43,42 +37,40 @@ WHERE e.nombre = 'Tom Cruise',
       e.año = p.año,
 ```
 
-## Ejer 5
+## Ejercicio 5
 
 Elenco de la película "Romeo y Julieta" de la producción del año 1938.
 
-### Algebra R
+&pi; {Actor.Nombre} ( &sigma; {Título = 'Romeo y Julieta' and Año = 1938} (Película) >< Elenco )
 
-&pi; {Actor.Nombre} ( &sigma; {Título = 'Romeo y Julieta' and Año = 1983} (Película) >< Elenco )
-
-
-### SQL
-
-```mysql
+```SQL
+SELECT Actor.Nombre
+FROM Pelicula P, Elenco E, Actor A
+WHERE P.Año = 1938 AND E.Nombre = A.Nombre
 ```
 
-## Ejer 7
+## Ejercicio 7
 
 Nombres de los actores que han participado en películas filmadas entre 1995 y el 2000
 
-### Algebra R
-
 &pi; Actor.Nombre ( &sigma; {Año > 31/12/1994 AND Año < 1/1/2001} (Película) >< Elenco )
 
-### SQL
-
-```mysql
+```SQL
+SELECT DISTINCT Actor.Nombre
+FROM Elenco E, Actor A, Pelicula P
+WHERE P.Año > 31/12/1994 AND P.Año < 1/1/2001
 ```
 
-## Ejer 9
+## Ejercicio 9
 
 Nombre de los actores con más 60 años de Edad que participaron en la película del "Mago de OZ".
 
-### Algebra R
+&pi; Actor.Nombre ( &sigma; {fechanacimiento <=30/8/1962 } ) >< (&sigma; {Elenco.título = 'Mago de OZ'} (Elenco) )
 
-&pi; Actor.Nombre ( &sigma; {fechanacimiento} )
-
-### SQL
-
-```mysql
+```SQL
+SELECT DISTINCT Elenco.Nombre
+FROM Actor A, Elenco E,
+WHERE A.nombre = E.nombre 
+      AND E.titulo = 'Mago de OZ'
+      AND A.fechanacimiento <= 30/8/1962
 ```

@@ -51,7 +51,6 @@ Operador conmutativo
 - La relación de los operandos donde los campos en común existen en ambos operandos
 
 
-
 ### Intersección
 
 
