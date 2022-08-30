@@ -7,16 +7,16 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
 const port = 5000;
-// const cookie = require(path.join(__dirname,'/controllers/cookie.js'));
 
 app.set('view-engine','ejs');
-app.set('views','views');
+app.set('views','./views');
 
-app.use('/',(req, res, next) => {
-    console.log('Time:', Date.now())
-    res.render('index.ejs');
-    next()
-  });
+const bird = require('./routes/bird.routes');
+
+
+// const cookie = require(path.join(__dirname,'/controllers/cookie.js'));
+
+
 // Para manejar sesiones de manera muy práctica, instalaremos el paquete express-session.
 // Para preparar el entorno para trabajar con sesiones, agregamos como middleware el manejo de sesiones:
 
@@ -31,10 +31,19 @@ app.use(session({
     saveUninitialized: false, //Asegura que no se guarde una sesión para una petición que no lo necesita
 }));
 
-app.use((req, res, next) => {
-    console.log('Time:', Date.now())
-    next()
+
+app.use('/home',(req, res) => {
+    res.render('index.ejs');
   });
+
+
+app.use('/birds', bird);
+
+
+app.use('/',(req, res) => {
+    res.render('error.ejs');
+  });
+
 
 app.listen(port, () => {
     console.log(`http://localhost:${port}/`)
