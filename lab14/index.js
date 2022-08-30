@@ -47,7 +47,7 @@ exports.logout = (request, response, next) => {
         response.redirect('/'); //Este código se ejecuta cuando la sesión se elimina.
     });
 };
-                        
 
 // Mejora alguno de tus laboratorios anteriores o avanza en tu proyecto haciendo un uso pertinente de sesiones y cookies. Otra opción es que crees una nueva aplicación para que explores la aplicación de estos conceptos.
+
 // En ocasiones, como por ejemplo para mandar mensajes de error al usuario, deseamos utilizar variables de sesión que tengan un tiempo de vida de sólo 1 petición. Estas variables se llaman flash. Si deseas utilizarlas, el paquete connect-flash lo hace sencillo.
