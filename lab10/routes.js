@@ -11,7 +11,7 @@ const server = http.createServer(function (request, response) {
     response.writeHead(200, {'Content-Type': 'text/html'});
     response.write(sample_site); 
     response.end();
-}).listen(3100);
+})
 
 
 console.log("Opening port on 3100");
