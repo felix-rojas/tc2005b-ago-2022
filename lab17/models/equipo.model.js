@@ -6,16 +6,10 @@ module.exports = class Equipo {
     }
     
     save(){
-
+        return db.execute('INSERT INTO equipos (nombre) VALUES (?)', [this.nombre]);
     }
 
     static fetchAll() {
-        db.execute ('SELECT * FROM equipos')
-        .then (([rows, fieldData]) => {
-            console.log(rows);
-        })
-        .catch(err => {
-            console.log(err);
-        });
+        return db.execute ('SELECT * FROM equipos');
     }
 }
