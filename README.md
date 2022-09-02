@@ -28,7 +28,7 @@ Para el laboratorio 1, en unos momentos lo importo:
 2. develop
 
 
-Hee hoo pee pee poop pooop
+Oops
 =======
 1. main       //
 2. develop    //
