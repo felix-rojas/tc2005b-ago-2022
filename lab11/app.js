@@ -22,7 +22,7 @@ app.use((request, response, next) => {
   });
 
 const rutas_garbo = require('./routes/garbo.routes');
-app.use('/sample', rutas_garbo);
+app.use('/garbo', rutas_garbo);
 
 const rutas_pulpitos= require('./routes/pulpitos.routes');
 app.use('/pulpos', rutas_pulpitos);
@@ -42,4 +42,4 @@ app.use((request, response, next) => {
     response.send('La ruta no existe :( '+'<br><br><a href= "/sample"> Regresa a sample </a>');
   });
 
-app.listen(3000);
+app.listen(3100);

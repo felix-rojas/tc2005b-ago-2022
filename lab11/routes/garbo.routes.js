@@ -9,6 +9,7 @@ router.get("/", (request, response, next) => {
 
 router.post("/", (request, response, next) => {
   console.log(request.body);
+  response.send('its all gone now :C')
 });
 
 
