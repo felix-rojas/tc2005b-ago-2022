@@ -46,9 +46,9 @@ Para el laboratorio 1, en unos momentos lo importo:
 |Lab5 | Experimenting witgh Tailwind CSS | |
 |Lab6 | Done | |
 |Lab7 | Done | |
-|Lab8 | ToDo | |
-|Lab9 | ToDo | |
-|Lab10 | ToDo | |
+|Lab8 | Done | |
+|Lab9 | Done | |
+|Lab10 | Done | |
 |Lab11 | ToDo | |
 |Lab12 | ToDo | |
 |Lab13 | ToDo | |
