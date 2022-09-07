@@ -33,7 +33,10 @@ router.get("/", (request, response, next) => {
   response.write('<input type="submit" value="Submit">');
   response.write('</form>');
   response.write('</section>');
-  response.write('<h2>Repositorio del curso</h2ls.com/photos/416160/pexels-photo-416160.jpeg" alt="Sleepy cat lying upside down" width="388px" height="auto"/>');
+  response.write('<h2> Package JSON </h2>');
+  response.write('<p> Package JSON es el archivo que guarda la versión de las dependencias utilizadas para el desarrollo de la aplicación </p>');
+  response.write('<p> El archivo establece cuaáles son las dependencias de desarrollo y las de producción. Con este archivo, se controla la versión a descargar de los archivos al utilizar el comando npm install </p>');
+  response.write('<p> También nos sirve cuando queremos auditar las dependencias para asegurarnos que estén actualizados en la parte más crítica con npm audit </p>');
   response.write('</body>');
   response.write('</html>');
   response.end();
