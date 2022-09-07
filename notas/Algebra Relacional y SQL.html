@@ -2,7 +2,7 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>Ejercicios Nones</title>
+        <title>&Aacute;lgebra relacional &amp; SQL</title>
         <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -2105,12 +2105,47 @@ hue-6-2: #e6c07b
 </style>
         
     </head>
-    <body class="vscode-body vscode-dark">
-        <div class="github-markdown-body github-markdown-dark">
-            <div class="github-markdown-content"><h1 id="ejercicios-nones">Ejercicios Nones</h1>
+    <body class="vscode-body vscode-light">
+        <div class="github-markdown-body github-markdown-auto">
+            <div class="github-markdown-content"><h1 id="álgebra-relacional--sql">Álgebra relacional &amp; SQL</h1>
+<hr>
+<p>30 de agosto de 2022</p>
+<ul>
+<li>Alan Fernando Razo Peña : A01703350</li>
+<li>Leonardo Santiago Ramos Pérez  : A01707812</li>
+<li>Félix Javier Rojas Gallardo : A01201946</li>
+<li>Monserrat Karime Moreno Casas : A01276775</li>
+</ul>
+<hr>
+<p>Tabla de contenidos</p>
+<ul>
+<li><a href="#%C3%A1lgebra-relacional--sql">Álgebra relacional &amp; SQL</a>
+<ul>
+<li><a href="#esquema">ESQUEMA</a></li>
+<li><a href="#ejercicio-1">Ejercicio 1</a></li>
+<li><a href="#ejercicio-2">Ejercicio 2</a></li>
+<li><a href="#ejercicio-3">Ejercicio 3</a></li>
+<li><a href="#ejercicio-4">Ejercicio 4</a></li>
+<li><a href="#ejercicio-5">Ejercicio 5</a></li>
+<li><a href="#ejercicio-6">Ejercicio 6</a></li>
+<li><a href="#ejercicio-7">Ejercicio 7</a></li>
+<li><a href="#ejercicio-8">Ejercicio 8</a></li>
+<li><a href="#ejercicio-9">Ejercicio 9</a></li>
+<li><a href="#ejercicio-10">Ejercicio 10</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="esquema">ESQUEMA</h2>
+<ul>
+<li>Película (título, año, duración, encolor, nomestudio, idproductor)</li>
+<li>Elenco (título, año, nombre)</li>
+<li>Actor (nombre, dirección, teléfono, fechanacimiento, sexo)</li>
+<li>Productor (idproductor, nombre, dirección, teléfono, importeventas)</li>
+<li>Estudio (nomestudio, dirección)</li>
+</ul>
 <h2 id="ejercicio-1">Ejercicio 1</h2>
 <p>Nombre de actriz, fecha de nacimiento y título de la películas donde han sido parte del elenco mujeres (obtener sólo actrices, no actores).</p>
-<p>Álgebra Relacional</p>
 <p><strong>Actriz</strong> = σ {Sexo = 'Femenino'} (Actor)</p>
 <p>π {<strong>Actriz</strong>.Nombre, <strong>Actriz</strong>.fechanacimiento, Elenco.titulo} (<strong>Actriz</strong> &gt;&lt; Elenco)</p>
 <pre><code class="language-sql"><div><span class="hljs-comment">/* Vista Actrices */</span>
@@ -2121,10 +2156,16 @@ hue-6-2: #e6c07b
 Elenco <span class="hljs-keyword">ON</span> Elenco.Nombre <span class="hljs-operator">=</span> Actor.Nombre;
 
 </div></code></pre>
+<h2 id="ejercicio-2">Ejercicio 2</h2>
+<p>Títulos de películas en las que actuó Mike Myers en la década pasada.</p>
+<p>π titulo( σ {nombre = ‘Mike Myers AND año &gt;= 2010 AND año&lt; =2020} (Elenco))</p>
+<pre><code class="language-SQL"><div><span class="hljs-keyword">SELECT</span> titulo 
+<span class="hljs-keyword">FROM</span> Elenco
+<span class="hljs-keyword">WHERE</span> nombre <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Mike Myers&#x27;</span> <span class="hljs-keyword">AND</span> año <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">2010</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">2020</span> 
+</div></code></pre>
 <h2 id="ejercicio-3">Ejercicio 3</h2>
 <p>Nombre e importe de ventas de los productores que han producido películas en las que ha actuado Tom Cruise.</p>
-<p>σ {Nombre='Tom Cruise'} (Elenco) &gt;&lt;</p>
-<p>π {Productor.nombre, Productor.importeventas} (Película &gt;&lt; Productor)</p>
+<p>σ {Nombre='Tom Cruise'} (Elenco) &gt;&lt; π {Productor.nombre, Productor.importeventas} (Película &gt;&lt; Productor)</p>
 <pre><code class="language-sql"><div><span class="hljs-keyword">SELECT</span> Productor.nombre, Productor.importeventas
 <span class="hljs-keyword">FROM</span> Productor pro, Elenco e, Pelicula p
 <span class="hljs-keyword">WHERE</span> e.nombre <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Tom Cruise&#x27;</span>, 
@@ -2132,28 +2173,77 @@ Elenco <span class="hljs-keyword">ON</span> Elenco.Nombre <span class="hljs-oper
       e.titulo <span class="hljs-operator">=</span> p.titulo,
       e.año <span class="hljs-operator">=</span> p.año,
 </div></code></pre>
+<h2 id="ejercicio-4">Ejercicio 4</h2>
+<p>Dirección de los estudios en los que se han filmado películas con más de tres horas de duración en las que han actuado Salma Hayek o Antonio Banderas.</p>
+<p>π dirección (σ nombre= ‘Antonio Banderas’ OR nombre= ‘Salma Hayek AND duración&gt;=180 (Película&gt;&lt;Elenco) &gt;&lt; Estudio))</p>
+<pre><code class="language-SQL"><div><span class="hljs-keyword">SELECT</span> dirección
+<span class="hljs-keyword">FROM</span> Pelicula 
+( <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> Elenco <span class="hljs-keyword">USING</span> (titulo, año) )
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> Estudio <span class="hljs-keyword">USING</span> (Nomestudio)
+<span class="hljs-keyword">WHERE</span> nombre<span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Antonio Banderas&#x27;</span> 
+      <span class="hljs-keyword">OR</span> nombre<span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Salma Hayek&#x27;</span> 
+      <span class="hljs-keyword">AND</span> duración<span class="hljs-operator">&gt;=</span><span class="hljs-number">180</span> 
+</div></code></pre>
 <h2 id="ejercicio-5">Ejercicio 5</h2>
 <p>Elenco de la película &quot;Romeo y Julieta&quot; de la producción del año 1938.</p>
-<p>π {Actor.Nombre} ( σ {Título = 'Romeo y Julieta' and Año = 1938} (Película) &gt;&lt; Elenco )</p>
-<pre><code class="language-SQL"><div><span class="hljs-keyword">SELECT</span> Actor.Nombre
-<span class="hljs-keyword">FROM</span> Pelicula P, Elenco E, Actor A
-<span class="hljs-keyword">WHERE</span> P.Año <span class="hljs-operator">=</span> <span class="hljs-number">1938</span> <span class="hljs-keyword">AND</span> E.Nombre <span class="hljs-operator">=</span> A.Nombre
+<p>π {Elenco.Nombre} ( σ {Título = 'Romeo y Julieta' and Año = 1938} (Elenco)</p>
+<pre><code class="language-SQL"><div><span class="hljs-keyword">SELECT</span> Nombre
+<span class="hljs-keyword">FROM</span> Elenco
+<span class="hljs-keyword">WHERE</span> Año <span class="hljs-operator">=</span> <span class="hljs-number">1938</span> <span class="hljs-keyword">AND</span> Titulo <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Romeo y Julieta&#x27;</span> 
+</div></code></pre>
+<h2 id="ejercicio-6">Ejercicio 6</h2>
+<p>Nombre y teléfono de los actores que han aparecido en películas en las que el productor ha sido George Lucas.</p>
+<p>π Actor.nombre, teléfono (σ {productor.nombre= 'George Lucas'} (Actor &gt;&lt; Elenco) &gt;&lt; Pelicula &gt;&lt; Productor)</p>
+<pre><code class="language-SQL"><div><span class="hljs-keyword">SELECT</span> Actor.nombre, telefono
+<span class="hljs-keyword">FROM</span> Actor, Elenco, Pelicula, Productor
+<span class="hljs-keyword">WHERE</span> nombre.Productor <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;George Lucas&#x27;</span>
+      <span class="hljs-keyword">AND</span> P.idProductor <span class="hljs-operator">=</span> Pr.idProductor
+      <span class="hljs-keyword">AND</span> E.nombre <span class="hljs-operator">=</span> A.nombre
+      <span class="hljs-keyword">AND</span> P.año <span class="hljs-operator">=</span> E.año
+      <span class="hljs-keyword">AND</span> P.titulo <span class="hljs-operator">=</span> E.titulo
+      <span class="hljs-keyword">AND</span> Pr.nombre <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;George Lucas&#x27;</span>
 </div></code></pre>
 <h2 id="ejercicio-7">Ejercicio 7</h2>
 <p>Nombres de los actores que han participado en películas filmadas entre 1995 y el 2000</p>
-<p>π Actor.Nombre ( σ {Año &gt; 31/12/1994 AND Año &lt; 1/1/2001} (Película) &gt;&lt; Elenco )</p>
+<p>π Actor.Nombre ( σ {Año &gt; 1994 AND Año &lt; 2001} (Película) &gt;&lt; Elenco )</p>
 <pre><code class="language-SQL"><div><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> Actor.Nombre
 <span class="hljs-keyword">FROM</span> Elenco E, Actor A, Pelicula P
-<span class="hljs-keyword">WHERE</span> P.Año <span class="hljs-operator">&gt;</span> <span class="hljs-number">31</span><span class="hljs-operator">/</span><span class="hljs-number">12</span><span class="hljs-operator">/</span><span class="hljs-number">1994</span> <span class="hljs-keyword">AND</span> P.Año <span class="hljs-operator">&lt;</span> <span class="hljs-number">1</span><span class="hljs-operator">/</span><span class="hljs-number">1</span><span class="hljs-operator">/</span><span class="hljs-number">2001</span>
+<span class="hljs-keyword">WHERE</span> P.Año <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">1995</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">2000</span>
+</div></code></pre>
+<h2 id="ejercicio-8">Ejercicio 8</h2>
+<p>Nombre de los productores que han filmado películas para la &quot;Universal Pictures&quot;.</p>
+<p>π Productor.nombre ( σ {nomEstudio = 'Universal Pictures'} (Productor &gt;&lt; Pelicula) )</p>
+<pre><code class="language-SQL"><div><span class="hljs-keyword">SELECT</span> Pr.nombre 
+<span class="hljs-keyword">FROM</span> Productor Pr, Pelicula P
+<span class="hljs-keyword">WHERE</span> Pr.idProductor <span class="hljs-operator">=</span> P.idProductor
+<span class="hljs-keyword">AND</span> P.nomestudio <span class="hljs-operator">=</span> Pr.nomestudio
+<span class="hljs-keyword">AND</span> P.nomestudio <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Universal Pictures&#x27;</span>
 </div></code></pre>
 <h2 id="ejercicio-9">Ejercicio 9</h2>
 <p>Nombre de los actores con más 60 años de Edad que participaron en la película del &quot;Mago de OZ&quot;.</p>
-<p>π Actor.Nombre ( σ {fechanacimiento &lt;=30/8/1962 } ) &gt;&lt; (σ {Elenco.título = 'Mago de OZ'} (Elenco) )</p>
-<pre><code class="language-SQL"><div><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> Elenco.Nombre
+<p>π Actor.Nombre ( σ {fechanacimiento &lt;='01/09/1962' } ) &gt;&lt; (σ {Elenco.título = 'Mago de OZ'} (Elenco) )</p>
+<pre><code class="language-SQL"><div><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> E.Nombre
 <span class="hljs-keyword">FROM</span> Actor A, Elenco E,
 <span class="hljs-keyword">WHERE</span> A.nombre <span class="hljs-operator">=</span> E.nombre 
       <span class="hljs-keyword">AND</span> E.titulo <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Mago de OZ&#x27;</span>
-      <span class="hljs-keyword">AND</span> A.fechanacimiento <span class="hljs-operator">&lt;=</span> <span class="hljs-number">30</span><span class="hljs-operator">/</span><span class="hljs-number">8</span><span class="hljs-operator">/</span><span class="hljs-number">1962</span>
+      <span class="hljs-keyword">AND</span> A.fechanacimiento <span class="hljs-operator">&lt;=</span> <span class="hljs-number">01</span><span class="hljs-operator">/</span><span class="hljs-number">09</span><span class="hljs-operator">/</span><span class="hljs-number">1962</span>
+</div></code></pre>
+<h2 id="ejercicio-10">Ejercicio 10</h2>
+<p>Nombre de los productores que han trabajado tanto para los estudios &quot;FOX&quot; como para &quot;MGM&quot;.</p>
+<p><strong>R1</strong> = π {Productor.nombre} (σ {nomestudio = 'FOX'}((Estudio &gt;&lt; Pelicula) &gt;&lt; Productor))</p>
+<p><strong>R2</strong> = π {Productor.nombre} (σ {nomestudio = 'MGM'}((Estudio &gt;&lt; Pelicula) &gt;&lt; Productor))</p>
+<p><strong>R1</strong> ∩ <strong>R2</strong></p>
+<pre><code class="language-SQL"><div><span class="hljs-keyword">SELECT</span> Productor.nombre <span class="hljs-keyword">FROM</span> Productor, Pelicula, Estudio
+<span class="hljs-keyword">WHERE</span> Productor.idProductor <span class="hljs-operator">=</span> Pelicula.idProductor
+<span class="hljs-keyword">AND</span> Estudio.nomestudio <span class="hljs-operator">=</span> Pelicula.nomestudio
+<span class="hljs-keyword">AND</span> Estudio.nomestudio <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;FOX&#x27;</span>
+
+<span class="hljs-keyword">INTERSECT</span>
+
+<span class="hljs-keyword">SELECT</span> Productor.nombre <span class="hljs-keyword">FROM</span> Productor, Pelicula, Estudio
+<span class="hljs-keyword">WHERE</span> Productor.idProductor <span class="hljs-operator">=</span> Pelicula.idProductor
+<span class="hljs-keyword">AND</span> Estudio.nomestudio <span class="hljs-operator">=</span> Pelicula.nomestudio
+<span class="hljs-keyword">AND</span> Estudio.nomestudio <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;MGM&#x27;</span>
 </div></code></pre>
 </div>
         </div>

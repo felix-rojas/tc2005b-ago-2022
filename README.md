@@ -23,13 +23,6 @@ Para el laboratorio 1, en unos momentos lo importo:
 
 ## Current branches
 
-<<<<<<< HEAD
-1. main
-2. develop
-
-
-Oops
-=======
 1. main       //
 2. develop    //
 3. lab5       //
@@ -54,8 +47,8 @@ Oops
 |Lab6 | Done | |
 |Lab7 | Done | |
 |Lab8 | Done | |
-|Lab9 | ToDo | |
-|Lab10 | ToDo | |
+|Lab9 | Done | |
+|Lab10 | Done | |
 |Lab11 | ToDo | |
 |Lab12 | ToDo | |
 |Lab13 | ToDo | |
