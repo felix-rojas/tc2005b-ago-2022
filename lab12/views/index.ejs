@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="es-mx">
-  <head>
-    <meta charset="utf-8" />
-    <link type="text/css" rel="stylesheet" href="css/style.min.css">
-  </head>
-  <body>
-    <h1 style="color: teal">PULPOS BAYBEE</h1>
+<-% include('includes/head.ejs') %>
+<body>
+  <h1 style="color: teal">PULPOS BAYBEE</h1>
     <p class="pulpo">Los pulpos gesticulan con sus tentáculos</p>
     <p class="pulpito">Los pulpos son geniales</p>
     <p class="pulpito" id="gelatina">Los pulpos son gelatinosos</p>
@@ -29,5 +24,5 @@
       ¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio?
       Disminuye el tamaño del archivo significativamente pues ya no incluye ningún comentario, espacio, etc. y eso hace que pese menos el archivo a transferir
     </p>
-  </body>
-</html>
+
+    <-% include('includes/tail.ejs') %>
