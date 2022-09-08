@@ -1,0 +1,1361 @@
+mysql> SELECT * FROM materiales WHERE CLAVE = 1000; &> 1.txt
++-------+--------------+--------+----------+
+| clave | descripcion  | precio | impuesto |
++-------+--------------+--------+----------+
+|  1000 | Varilla 3/16 |    100 |       10 |
++-------+--------------+--------+----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM materiales WHERE CLAVE = 1000;
++-------+--------------+--------+----------+
+| clave | descripcion  | precio | impuesto |
++-------+--------------+--------+----------+
+|  1000 | Varilla 3/16 |    100 |       10 |
++-------+--------------+--------+----------+
+1 row in set (0.00 sec)
+
+mysql> select * from materiales
+    -> ;
++-------+---------------------+--------+----------+
+| clave | descripcion         | precio | impuesto |
++-------+---------------------+--------+----------+
+|  1000 | Varilla 3/16        |    100 |       10 |
+|  1010 | Varilla 4/32        |    115 |     11.5 |
+|  1020 | Varilla 3/17        |    130 |       13 |
+|  1030 | Varilla 4/33        |    145 |     14.5 |
+|  1040 | Varilla 3/18        |    160 |       16 |
+|  1050 | Varilla 4/34        |    175 |     17.5 |
+|  1060 | Varilla 3/19        |    190 |       19 |
+|  1070 | Varilla 4/35        |    205 |     20.5 |
+|  1080 | Ladrillos rojos     |     50 |        5 |
+|  1090 | Ladrillos grises    |     35 |      3.5 |
+|  1100 | Block               |     30 |        3 |
+|  1110 | Megablock           |     40 |        4 |
+|  1120 | Sillar rosa         |    100 |       10 |
+|  1130 | Sillar gris         |    110 |       11 |
+|  1140 | Cantera blanca      |    200 |       20 |
+|  1150 | Cantera gris        |   1210 |      121 |
+|  1160 | Cantera rosa        |   1420 |      142 |
+|  1170 | Cantera amarilla    |    230 |       23 |
+|  1180 | Recubrimiento P1001 |    200 |       20 |
+|  1190 | Recubrimiento P1010 |    220 |       22 |
+|  1200 | Recubrimiento P1019 |    240 |       24 |
+|  1210 | Recubrimiento P1028 |    250 |       25 |
+|  1220 | Recubrimiento P1037 |    280 |       28 |
+|  1230 | Cemento             |    300 |       30 |
+|  1240 | Arena               |    200 |       20 |
+|  1250 | Grava               |    100 |       10 |
+|  1260 | Gravilla            |     90 |        9 |
+|  1270 | Tezontle            |     80 |        8 |
+|  1280 | Tepetate            |     34 |      3.4 |
+|  1290 | Tubería 3.5         |    200 |       20 |
+|  1300 | Tubería 4.3         |    210 |       21 |
+|  1310 | Tubería 3.6         |    220 |       22 |
+|  1320 | Tubería 4.4         |    230 |       23 |
+|  1330 | Tubería 3.7         |    240 |       24 |
+|  1340 | Tubería 4.5         |    250 |       25 |
+|  1350 | Tubería 3.8         |    260 |       26 |
+|  1360 | Pintura C1010       |    125 |     12.5 |
+|  1370 | Pintura B1020       |    125 |     12.5 |
+|  1380 | Pintura C1011       |    725 |     72.5 |
+|  1390 | Pintura B1021       |    125 |     12.5 |
+|  1400 | Pintura C1011       |    125 |     12.5 |
+|  1410 | Pintura B1021       |    125 |     12.5 |
+|  1420 | Pintura C1012       |    125 |     12.5 |
+|  1430 | Pintura B1022       |    125 |     12.5 |
+|  2000 | Jabón               |    125 |     12.5 |
++-------+---------------------+--------+----------+
+45 rows in set (0.00 sec)
+
+mysql> select clave,rfc,fecha from entregan;
++-------+------------+------------+
+| clave | rfc        | fecha      |
++-------+------------+------------+
+|  1000 | AAAA800101 | 2001-12-13 |
+|  1200 | EEEE800101 | 2003-03-15 |
+|  1400 | AAAA800101 | 1999-04-07 |
+|  1010 | BBBB800101 | 1998-07-28 |
+|  1210 | FFFF800101 | 2000-05-21 |
+|  1410 | BBBB800101 | 2000-05-18 |
+|  1020 | CCCC800101 | 2003-12-16 |
+|  1220 | GGGG800101 | 2005-07-03 |
+|  1420 | CCCC800101 | 2001-09-09 |
+|  1030 | DDDD800101 | 1998-01-12 |
+|  1230 | HHHH800101 | 1998-09-12 |
+|  1430 | DDDD800101 | 2005-04-30 |
+|  1040 | EEEE800101 | 1999-12-18 |
+|  1150 | HHHH800101 | 2002-11-14 |
+|  1240 | AAAA800101 | 0000-00-00 |
+|  1050 | FFFF800101 | 2004-02-07 |
+|  1140 | GGGG800101 | 2000-06-30 |
+|  1250 | BBBB800101 | 2003-10-12 |
+|  1300 | GGGG800101 | 2004-02-28 |
+|  1060 | GGGG800101 | 2004-09-29 |
+|  1130 | FFFF800101 | 2000-04-13 |
+|  1260 | CCCC800101 | 2001-04-09 |
+|  1290 | FFFF800101 | 2002-01-09 |
+|  1070 | HHHH800101 | 2006-11-21 |
+|  1120 | EEEE800101 | 2003-11-21 |
+|  1270 | DDDD800101 | 2005-06-06 |
+|  1280 | EEEE800101 | 1998-04-01 |
+|  1430 | DDDD800101 | 2000-03-02 |
+|  1080 | AAAA800101 | 2005-04-03 |
+|  1110 | DDDD800101 | 2005-06-03 |
+|  1270 | DDDD800101 | 2003-01-21 |
+|  1280 | EEEE800101 | 2002-03-23 |
+|  1420 | CCCC800101 | 1999-05-05 |
+|  1090 | BBBB800101 | 1997-03-13 |
+|  1100 | CCCC800101 | 2000-12-07 |
+|  1260 | CCCC800101 | 2001-07-28 |
+|  1290 | FFFF800101 | 2003-06-10 |
+|  1410 | BBBB800101 | 2003-07-13 |
+|  1090 | BBBB800101 | 1998-11-17 |
+|  1100 | CCCC800101 | 2001-11-19 |
+|  1250 | BBBB800101 | 1999-01-25 |
+|  1300 | GGGG800101 | 2001-02-10 |
+|  1400 | AAAA800101 | 2005-04-21 |
+|  1080 | AAAA800101 | 2003-08-28 |
+|  1110 | DDDD800101 | 2002-01-13 |
+|  1240 | AAAA800101 | 1997-03-13 |
+|  1310 | HHHH800101 | 2000-09-14 |
+|  1390 | HHHH800101 | 2003-02-16 |
+|  1070 | HHHH800101 | 2004-11-27 |
+|  1120 | EEEE800101 | 1997-08-05 |
+|  1230 | HHHH800101 | 2004-08-23 |
+|  1320 | AAAA800101 | 1999-04-27 |
+|  1380 | GGGG800101 | 2005-12-05 |
+|  1060 | GGGG800101 | 2002-07-23 |
+|  1130 | FFFF800101 | 2000-02-09 |
+|  1220 | GGGG800101 | 1998-12-16 |
+|  1330 | BBBB800101 | 2001-03-13 |
+|  1370 | FFFF800101 | 1997-12-03 |
+|  1050 | FFFF800101 | 2000-04-18 |
+|  1140 | GGGG800101 | 1999-06-28 |
+|  1210 | FFFF800101 | 2002-09-26 |
+|  1340 | CCCC800101 | 1999-08-25 |
+|  1360 | EEEE800101 | 2000-02-04 |
+|  1040 | EEEE800101 | 1999-05-29 |
+|  1150 | HHHH800101 | 2006-02-16 |
+|  1200 | EEEE800101 | 1998-11-07 |
+|  1350 | DDDD800101 | 1997-01-06 |
+|  1030 | DDDD800101 | 2005-06-07 |
+|  1160 | AAAA800101 | 1997-08-09 |
+|  1190 | DDDD800101 | 2005-11-07 |
+|  1340 | CCCC800101 | 1997-05-11 |
+|  1360 | EEEE800101 | 1998-09-02 |
+|  1020 | CCCC800101 | 2000-03-29 |
+|  1170 | BBBB800101 | 2002-01-31 |
+|  1180 | CCCC800101 | 2002-04-17 |
+|  1330 | BBBB800101 | 2006-06-10 |
+|  1370 | FFFF800101 | 1999-06-26 |
+|  1010 | BBBB800101 | 1997-02-09 |
+|  1170 | BBBB800101 | 2006-07-12 |
+|  1180 | CCCC800101 | 2001-10-24 |
+|  1320 | AAAA800101 | 2002-06-23 |
+|  1380 | GGGG800101 | 2006-04-15 |
+|  1000 | AAAA800101 | 1999-07-13 |
+|  1160 | AAAA800101 | 2003-05-05 |
+|  1190 | DDDD800101 | 2004-11-19 |
+|  1310 | HHHH800101 | 1998-05-27 |
+|  1390 | HHHH800101 | 2000-11-10 |
++-------+------------+------------+
+87 rows in set (0.00 sec)
+
+mysql> select * from materiales,entregan
+    -> where materiales.clave = entregan.clave;
++-------+---------------------+--------+----------+-------+------------+--------+------------+----------+
+| clave | descripcion         | precio | impuesto | clave | rfc        | numero | fecha      | cantidad |
++-------+---------------------+--------+----------+-------+------------+--------+------------+----------+
+|  1000 | Varilla 3/16        |    100 |       10 |  1000 | AAAA800101 |   5000 | 2001-12-13 |      165 |
+|  1000 | Varilla 3/16        |    100 |       10 |  1000 | AAAA800101 |   5019 | 1999-07-13 |      254 |
+|  1010 | Varilla 4/32        |    115 |     11.5 |  1010 | BBBB800101 |   5001 | 1998-07-28 |      528 |
+|  1010 | Varilla 4/32        |    115 |     11.5 |  1010 | BBBB800101 |   5018 | 1997-02-09 |      523 |
+|  1020 | Varilla 3/17        |    130 |       13 |  1020 | CCCC800101 |   5002 | 2003-12-16 |      582 |
+|  1020 | Varilla 3/17        |    130 |       13 |  1020 | CCCC800101 |   5017 | 2000-03-29 |        8 |
+|  1030 | Varilla 4/33        |    145 |     14.5 |  1030 | DDDD800101 |   5003 | 1998-01-12 |      202 |
+|  1030 | Varilla 4/33        |    145 |     14.5 |  1030 | DDDD800101 |   5016 | 2005-06-07 |      295 |
+|  1040 | Varilla 3/18        |    160 |       16 |  1040 | EEEE800101 |   5004 | 1999-12-18 |      263 |
+|  1040 | Varilla 3/18        |    160 |       16 |  1040 | EEEE800101 |   5015 | 1999-05-29 |      540 |
+|  1050 | Varilla 4/34        |    175 |     17.5 |  1050 | FFFF800101 |   5005 | 2004-02-07 |      503 |
+|  1050 | Varilla 4/34        |    175 |     17.5 |  1050 | FFFF800101 |   5014 | 2000-04-18 |      623 |
+|  1060 | Varilla 3/19        |    190 |       19 |  1060 | GGGG800101 |   5006 | 2004-09-29 |      324 |
+|  1060 | Varilla 3/19        |    190 |       19 |  1060 | GGGG800101 |   5013 | 2002-07-23 |      692 |
+|  1070 | Varilla 4/35        |    205 |     20.5 |  1070 | HHHH800101 |   5007 | 2006-11-21 |        2 |
+|  1070 | Varilla 4/35        |    205 |     20.5 |  1070 | HHHH800101 |   5012 | 2004-11-27 |      503 |
+|  1080 | Ladrillos rojos     |     50 |        5 |  1080 | AAAA800101 |   5008 | 2005-04-03 |       86 |
+|  1080 | Ladrillos rojos     |     50 |        5 |  1080 | AAAA800101 |   5011 | 2003-08-28 |      699 |
+|  1090 | Ladrillos grises    |     35 |      3.5 |  1090 | BBBB800101 |   5009 | 1997-03-13 |       73 |
+|  1090 | Ladrillos grises    |     35 |      3.5 |  1090 | BBBB800101 |   5010 | 1998-11-17 |      421 |
+|  1100 | Block               |     30 |        3 |  1100 | CCCC800101 |   5009 | 2000-12-07 |      466 |
+|  1100 | Block               |     30 |        3 |  1100 | CCCC800101 |   5010 | 2001-11-19 |      699 |
+|  1110 | Megablock           |     40 |        4 |  1110 | DDDD800101 |   5008 | 2005-06-03 |      337 |
+|  1110 | Megablock           |     40 |        4 |  1110 | DDDD800101 |   5011 | 2002-01-13 |      368 |
+|  1120 | Sillar rosa         |    100 |       10 |  1120 | EEEE800101 |   5007 | 2003-11-21 |      692 |
+|  1120 | Sillar rosa         |    100 |       10 |  1120 | EEEE800101 |   5012 | 1997-08-05 |      215 |
+|  1130 | Sillar gris         |    110 |       11 |  1130 | FFFF800101 |   5006 | 2000-04-13 |      562 |
+|  1130 | Sillar gris         |    110 |       11 |  1130 | FFFF800101 |   5013 | 2000-02-09 |       63 |
+|  1140 | Cantera blanca      |    200 |       20 |  1140 | GGGG800101 |   5005 | 2000-06-30 |      583 |
+|  1140 | Cantera blanca      |    200 |       20 |  1140 | GGGG800101 |   5014 | 1999-06-28 |      219 |
+|  1150 | Cantera gris        |   1210 |      121 |  1150 | HHHH800101 |   5004 | 2002-11-14 |      453 |
+|  1150 | Cantera gris        |   1210 |      121 |  1150 | HHHH800101 |   5015 | 2006-02-16 |      458 |
+|  1160 | Cantera rosa        |   1420 |      142 |  1160 | AAAA800101 |   5016 | 1997-08-09 |      162 |
+|  1160 | Cantera rosa        |   1420 |      142 |  1160 | AAAA800101 |   5019 | 2003-05-05 |      244 |
+|  1170 | Cantera amarilla    |    230 |       23 |  1170 | BBBB800101 |   5017 | 2002-01-31 |      180 |
+|  1170 | Cantera amarilla    |    230 |       23 |  1170 | BBBB800101 |   5018 | 2006-07-12 |       53 |
+|  1180 | Recubrimiento P1001 |    200 |       20 |  1180 | CCCC800101 |   5017 | 2002-04-17 |      334 |
+|  1180 | Recubrimiento P1001 |    200 |       20 |  1180 | CCCC800101 |   5018 | 2001-10-24 |      407 |
+|  1190 | Recubrimiento P1010 |    220 |       22 |  1190 | DDDD800101 |   5016 | 2005-11-07 |      356 |
+|  1190 | Recubrimiento P1010 |    220 |       22 |  1190 | DDDD800101 |   5019 | 2004-11-19 |       94 |
+|  1200 | Recubrimiento P1019 |    240 |       24 |  1200 | EEEE800101 |   5000 | 2003-03-15 |      177 |
+|  1200 | Recubrimiento P1019 |    240 |       24 |  1200 | EEEE800101 |   5015 | 1998-11-07 |      585 |
+|  1210 | Recubrimiento P1028 |    250 |       25 |  1210 | FFFF800101 |   5001 | 2000-05-21 |       43 |
+|  1210 | Recubrimiento P1028 |    250 |       25 |  1210 | FFFF800101 |   5014 | 2002-09-26 |       70 |
+|  1220 | Recubrimiento P1037 |    280 |       28 |  1220 | GGGG800101 |   5002 | 2005-07-03 |       24 |
+|  1220 | Recubrimiento P1037 |    280 |       28 |  1220 | GGGG800101 |   5013 | 1998-12-16 |      658 |
+|  1230 | Cemento             |    300 |       30 |  1230 | HHHH800101 |   5003 | 1998-09-12 |      530 |
+|  1230 | Cemento             |    300 |       30 |  1230 | HHHH800101 |   5012 | 2004-08-23 |      312 |
+|  1240 | Arena               |    200 |       20 |  1240 | AAAA800101 |   5004 | 0000-00-00 |      152 |
+|  1240 | Arena               |    200 |       20 |  1240 | AAAA800101 |   5011 | 1997-03-13 |      366 |
+|  1250 | Grava               |    100 |       10 |  1250 | BBBB800101 |   5005 | 2003-10-12 |       71 |
+|  1250 | Grava               |    100 |       10 |  1250 | BBBB800101 |   5010 | 1999-01-25 |      691 |
+|  1260 | Gravilla            |     90 |        9 |  1260 | CCCC800101 |   5006 | 2001-04-09 |      460 |
+|  1260 | Gravilla            |     90 |        9 |  1260 | CCCC800101 |   5009 | 2001-07-28 |      631 |
+|  1270 | Tezontle            |     80 |        8 |  1270 | DDDD800101 |   5007 | 2005-06-06 |      506 |
+|  1270 | Tezontle            |     80 |        8 |  1270 | DDDD800101 |   5008 | 2003-01-21 |      546 |
+|  1280 | Tepetate            |     34 |      3.4 |  1280 | EEEE800101 |   5007 | 1998-04-01 |      331 |
+|  1280 | Tepetate            |     34 |      3.4 |  1280 | EEEE800101 |   5008 | 2002-03-23 |      107 |
+|  1290 | Tubería 3.5         |    200 |       20 |  1290 | FFFF800101 |   5006 | 2002-01-09 |      279 |
+|  1290 | Tubería 3.5         |    200 |       20 |  1290 | FFFF800101 |   5009 | 2003-06-10 |      132 |
+|  1300 | Tubería 4.3         |    210 |       21 |  1300 | GGGG800101 |   5005 | 2004-02-28 |      521 |
+|  1300 | Tubería 4.3         |    210 |       21 |  1300 | GGGG800101 |   5010 | 2001-02-10 |      119 |
+|  1310 | Tubería 3.6         |    220 |       22 |  1310 | HHHH800101 |   5011 | 2000-09-14 |       72 |
+|  1310 | Tubería 3.6         |    220 |       22 |  1310 | HHHH800101 |   5019 | 1998-05-27 |      199 |
+|  1320 | Tubería 4.4         |    230 |       23 |  1320 | AAAA800101 |   5012 | 1999-04-27 |      698 |
+|  1320 | Tubería 4.4         |    230 |       23 |  1320 | AAAA800101 |   5018 | 2002-06-23 |      413 |
+|  1330 | Tubería 3.7         |    240 |       24 |  1330 | BBBB800101 |   5013 | 2001-03-13 |      554 |
+|  1330 | Tubería 3.7         |    240 |       24 |  1330 | BBBB800101 |   5017 | 2006-06-10 |       93 |
+|  1340 | Tubería 4.5         |    250 |       25 |  1340 | CCCC800101 |   5014 | 1999-08-25 |      324 |
+|  1340 | Tubería 4.5         |    250 |       25 |  1340 | CCCC800101 |   5016 | 1997-05-11 |      674 |
+|  1350 | Tubería 3.8         |    260 |       26 |  1350 | DDDD800101 |   5015 | 1997-01-06 |      272 |
+|  1360 | Pintura C1010       |    125 |     12.5 |  1360 | EEEE800101 |   5014 | 2000-02-04 |      265 |
+|  1360 | Pintura C1010       |    125 |     12.5 |  1360 | EEEE800101 |   5016 | 1998-09-02 |      364 |
+|  1370 | Pintura B1020       |    125 |     12.5 |  1370 | FFFF800101 |   5013 | 1997-12-03 |      575 |
+|  1370 | Pintura B1020       |    125 |     12.5 |  1370 | FFFF800101 |   5017 | 1999-06-26 |       44 |
+|  1380 | Pintura C1011       |    725 |     72.5 |  1380 | GGGG800101 |   5012 | 2005-12-05 |      645 |
+|  1380 | Pintura C1011       |    725 |     72.5 |  1380 | GGGG800101 |   5018 | 2006-04-15 |      302 |
+|  1390 | Pintura B1021       |    125 |     12.5 |  1390 | HHHH800101 |   5011 | 2003-02-16 |      697 |
+|  1390 | Pintura B1021       |    125 |     12.5 |  1390 | HHHH800101 |   5019 | 2000-11-10 |      107 |
+|  1400 | Pintura C1011       |    125 |     12.5 |  1400 | AAAA800101 |   5000 | 1999-04-07 |      382 |
+|  1400 | Pintura C1011       |    125 |     12.5 |  1400 | AAAA800101 |   5010 | 2005-04-21 |      116 |
+|  1410 | Pintura B1021       |    125 |     12.5 |  1410 | BBBB800101 |   5001 | 2000-05-18 |      601 |
+|  1410 | Pintura B1021       |    125 |     12.5 |  1410 | BBBB800101 |   5009 | 2003-07-13 |      467 |
+|  1420 | Pintura C1012       |    125 |     12.5 |  1420 | CCCC800101 |   5002 | 2001-09-09 |      603 |
+|  1420 | Pintura C1012       |    125 |     12.5 |  1420 | CCCC800101 |   5008 | 1999-05-05 |      278 |
+|  1430 | Pintura B1022       |    125 |     12.5 |  1430 | DDDD800101 |   5003 | 2005-04-30 |      576 |
+|  1430 | Pintura B1022       |    125 |     12.5 |  1430 | DDDD800101 |   5007 | 2000-03-02 |       13 |
++-------+---------------------+--------+----------+-------+------------+--------+------------+----------+
+87 rows in set (0.00 sec)
+
+mysql> select * from entregan,proyectos where entregan.numero <= proyectos.numero;
++-------+------------+--------+------------+----------+--------+-------------------------------------------+
+| clave | rfc        | numero | fecha      | cantidad | numero | denominacion                              |
++-------+------------+--------+------------+----------+--------+-------------------------------------------+
+|  1000 | AAAA800101 |   5000 | 2001-12-13 |      165 |   5000 | Vamos Mexico                              |
+|  1200 | EEEE800101 |   5000 | 2003-03-15 |      177 |   5000 | Vamos Mexico                              |
+|  1400 | AAAA800101 |   5000 | 1999-04-07 |      382 |   5000 | Vamos Mexico                              |
+|  1000 | AAAA800101 |   5000 | 2001-12-13 |      165 |   5001 | Aztecon                                   |
+|  1200 | EEEE800101 |   5000 | 2003-03-15 |      177 |   5001 | Aztecon                                   |
+|  1400 | AAAA800101 |   5000 | 1999-04-07 |      382 |   5001 | Aztecon                                   |
+|  1010 | BBBB800101 |   5001 | 1998-07-28 |      528 |   5001 | Aztecon                                   |
+|  1210 | FFFF800101 |   5001 | 2000-05-21 |       43 |   5001 | Aztecon                                   |
+|  1410 | BBBB800101 |   5001 | 2000-05-18 |      601 |   5001 | Aztecon                                   |
+|  1000 | AAAA800101 |   5000 | 2001-12-13 |      165 |   5002 | CIT Campeche                              |
+|  1200 | EEEE800101 |   5000 | 2003-03-15 |      177 |   5002 | CIT Campeche                              |
++-------+------------+--------+------------+----------+--------+-------------------------------------------+
+836 rows in set (0.00 sec)
+
+mysql> (select * from entregan where clave=1450)
+    -> union
+    -> (select * from entregan where clave=1300);
++-------+------------+--------+------------+----------+
+| clave | rfc        | numero | fecha      | cantidad |
++-------+------------+--------+------------+----------+
+|  1300 | GGGG800101 |   5005 | 2004-02-28 |      521 |
+|  1300 | GGGG800101 |   5010 | 2001-02-10 |      119 |
++-------+------------+--------+------------+----------+
+2 rows in set (0.00 sec)
+
+mysql> -- Alternativa sin unionselect * from entregan where clave=1450 or clave=1300
+mysql> select * from entregan where clave=1450 or clave=1300;
++-------+------------+--------+------------+----------+
+| clave | rfc        | numero | fecha      | cantidad |
++-------+------------+--------+------------+----------+
+|  1300 | GGGG800101 |   5005 | 2004-02-28 |      521 |
+|  1300 | GGGG800101 |   5010 | 2001-02-10 |      119 |
++-------+------------+--------+------------+----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM entregan WHERE clave !=1000;
++-------+------------+--------+------------+----------+
+| clave | rfc        | numero | fecha      | cantidad |
++-------+------------+--------+------------+----------+
+|  1010 | BBBB800101 |   5001 | 1998-07-28 |      528 |
+|  1010 | BBBB800101 |   5018 | 1997-02-09 |      523 |
+|  1020 | CCCC800101 |   5002 | 2003-12-16 |      582 |
+|  1020 | CCCC800101 |   5017 | 2000-03-29 |        8 |
+|  1030 | DDDD800101 |   5003 | 1998-01-12 |      202 |
+|  1030 | DDDD800101 |   5016 | 2005-06-07 |      295 |
+|  1040 | EEEE800101 |   5004 | 1999-12-18 |      263 |
+|  1040 | EEEE800101 |   5015 | 1999-05-29 |      540 |
+|  1050 | FFFF800101 |   5005 | 2004-02-07 |      503 |
+|  1050 | FFFF800101 |   5014 | 2000-04-18 |      623 |
+|  1060 | GGGG800101 |   5006 | 2004-09-29 |      324 |
+|  1060 | GGGG800101 |   5013 | 2002-07-23 |      692 |
+|  1070 | HHHH800101 |   5007 | 2006-11-21 |        2 |
+|  1070 | HHHH800101 |   5012 | 2004-11-27 |      503 |
+|  1080 | AAAA800101 |   5008 | 2005-04-03 |       86 |
+|  1080 | AAAA800101 |   5011 | 2003-08-28 |      699 |
+|  1090 | BBBB800101 |   5009 | 1997-03-13 |       73 |
+|  1090 | BBBB800101 |   5010 | 1998-11-17 |      421 |
+|  1100 | CCCC800101 |   5009 | 2000-12-07 |      466 |
+|  1100 | CCCC800101 |   5010 | 2001-11-19 |      699 |
+|  1110 | DDDD800101 |   5008 | 2005-06-03 |      337 |
+|  1110 | DDDD800101 |   5011 | 2002-01-13 |      368 |
+|  1120 | EEEE800101 |   5007 | 2003-11-21 |      692 |
+|  1120 | EEEE800101 |   5012 | 1997-08-05 |      215 |
+|  1130 | FFFF800101 |   5006 | 2000-04-13 |      562 |
+|  1130 | FFFF800101 |   5013 | 2000-02-09 |       63 |
+|  1140 | GGGG800101 |   5005 | 2000-06-30 |      583 |
+|  1140 | GGGG800101 |   5014 | 1999-06-28 |      219 |
+|  1150 | HHHH800101 |   5004 | 2002-11-14 |      453 |
+|  1150 | HHHH800101 |   5015 | 2006-02-16 |      458 |
+|  1160 | AAAA800101 |   5016 | 1997-08-09 |      162 |
+|  1160 | AAAA800101 |   5019 | 2003-05-05 |      244 |
+|  1170 | BBBB800101 |   5017 | 2002-01-31 |      180 |
+|  1170 | BBBB800101 |   5018 | 2006-07-12 |       53 |
+|  1180 | CCCC800101 |   5017 | 2002-04-17 |      334 |
+|  1180 | CCCC800101 |   5018 | 2001-10-24 |      407 |
+|  1190 | DDDD800101 |   5016 | 2005-11-07 |      356 |
+|  1190 | DDDD800101 |   5019 | 2004-11-19 |       94 |
+|  1200 | EEEE800101 |   5000 | 2003-03-15 |      177 |
+|  1200 | EEEE800101 |   5015 | 1998-11-07 |      585 |
+|  1210 | FFFF800101 |   5001 | 2000-05-21 |       43 |
+|  1210 | FFFF800101 |   5014 | 2002-09-26 |       70 |
+|  1220 | GGGG800101 |   5002 | 2005-07-03 |       24 |
+|  1220 | GGGG800101 |   5013 | 1998-12-16 |      658 |
+|  1230 | HHHH800101 |   5003 | 1998-09-12 |      530 |
+|  1230 | HHHH800101 |   5012 | 2004-08-23 |      312 |
+|  1240 | AAAA800101 |   5004 | 0000-00-00 |      152 |
+|  1240 | AAAA800101 |   5011 | 1997-03-13 |      366 |
+|  1250 | BBBB800101 |   5005 | 2003-10-12 |       71 |
+|  1250 | BBBB800101 |   5010 | 1999-01-25 |      691 |
+|  1260 | CCCC800101 |   5006 | 2001-04-09 |      460 |
+|  1260 | CCCC800101 |   5009 | 2001-07-28 |      631 |
+|  1270 | DDDD800101 |   5007 | 2005-06-06 |      506 |
+|  1270 | DDDD800101 |   5008 | 2003-01-21 |      546 |
+|  1280 | EEEE800101 |   5007 | 1998-04-01 |      331 |
+|  1280 | EEEE800101 |   5008 | 2002-03-23 |      107 |
+|  1290 | FFFF800101 |   5006 | 2002-01-09 |      279 |
+|  1290 | FFFF800101 |   5009 | 2003-06-10 |      132 |
+|  1300 | GGGG800101 |   5005 | 2004-02-28 |      521 |
+|  1300 | GGGG800101 |   5010 | 2001-02-10 |      119 |
+|  1310 | HHHH800101 |   5011 | 2000-09-14 |       72 |
+|  1310 | HHHH800101 |   5019 | 1998-05-27 |      199 |
+|  1320 | AAAA800101 |   5012 | 1999-04-27 |      698 |
+|  1320 | AAAA800101 |   5018 | 2002-06-23 |      413 |
+|  1330 | BBBB800101 |   5013 | 2001-03-13 |      554 |
+|  1330 | BBBB800101 |   5017 | 2006-06-10 |       93 |
+|  1340 | CCCC800101 |   5014 | 1999-08-25 |      324 |
+|  1340 | CCCC800101 |   5016 | 1997-05-11 |      674 |
+|  1350 | DDDD800101 |   5015 | 1997-01-06 |      272 |
+|  1360 | EEEE800101 |   5014 | 2000-02-04 |      265 |
+|  1360 | EEEE800101 |   5016 | 1998-09-02 |      364 |
+|  1370 | FFFF800101 |   5013 | 1997-12-03 |      575 |
+|  1370 | FFFF800101 |   5017 | 1999-06-26 |       44 |
+|  1380 | GGGG800101 |   5012 | 2005-12-05 |      645 |
+|  1380 | GGGG800101 |   5018 | 2006-04-15 |      302 |
+|  1390 | HHHH800101 |   5011 | 2003-02-16 |      697 |
+|  1390 | HHHH800101 |   5019 | 2000-11-10 |      107 |
+|  1400 | AAAA800101 |   5000 | 1999-04-07 |      382 |
+|  1400 | AAAA800101 |   5010 | 2005-04-21 |      116 |
+|  1410 | BBBB800101 |   5001 | 2000-05-18 |      601 |
+|  1410 | BBBB800101 |   5009 | 2003-07-13 |      467 |
+|  1420 | CCCC800101 |   5002 | 2001-09-09 |      603 |
+|  1420 | CCCC800101 |   5008 | 1999-05-05 |      278 |
+|  1430 | DDDD800101 |   5003 | 2005-04-30 |      576 |
+|  1430 | DDDD800101 |   5007 | 2000-03-02 |       13 |
++-------+------------+--------+------------+----------+
+85 rows in set (0.00 sec)
+
+mysql> select * from entregan,materiales limit 10;
++-------+------------+--------+------------+----------+-------+---------------+--------+----------+
+| clave | rfc        | numero | fecha      | cantidad | clave | descripcion   | precio | impuesto |
++-------+------------+--------+------------+----------+-------+---------------+--------+----------+
+|  1000 | AAAA800101 |   5000 | 2001-12-13 |      165 |  2000 | Jabón         |    125 |     12.5 |
+|  1000 | AAAA800101 |   5000 | 2001-12-13 |      165 |  1430 | Pintura B1022 |    125 |     12.5 |
+|  1000 | AAAA800101 |   5000 | 2001-12-13 |      165 |  1420 | Pintura C1012 |    125 |     12.5 |
+|  1000 | AAAA800101 |   5000 | 2001-12-13 |      165 |  1410 | Pintura B1021 |    125 |     12.5 |
+|  1000 | AAAA800101 |   5000 | 2001-12-13 |      165 |  1400 | Pintura C1011 |    125 |     12.5 |
+|  1000 | AAAA800101 |   5000 | 2001-12-13 |      165 |  1390 | Pintura B1021 |    125 |     12.5 |
+|  1000 | AAAA800101 |   5000 | 2001-12-13 |      165 |  1380 | Pintura C1011 |    725 |     72.5 |
+|  1000 | AAAA800101 |   5000 | 2001-12-13 |      165 |  1370 | Pintura B1020 |    125 |     12.5 |
+|  1000 | AAAA800101 |   5000 | 2001-12-13 |      165 |  1360 | Pintura C1010 |    125 |     12.5 |
+|  1000 | AAAA800101 |   5000 | 2001-12-13 |      165 |  1350 | Tubería 3.8   |    260 |       26 |
++-------+------------+--------+------------+----------+-------+---------------+--------+----------+
+10 rows in set (0.00 sec)
+
+mysql> // Consulta para obtener las descripciones de los materiales entregados en el año 2000.;
+
+mysql> SELECT M.descripcion FROM entregan E, materiales M WHERE M.clave = E.clave AND E.fecha;
++---------------------+
+| descripcion         |
++---------------------+
+| Varilla 3/16        |
+| Varilla 3/16        |
+| Varilla 4/32        |
+| Varilla 4/32        |
+| Varilla 3/17        |
+| Varilla 3/17        |
+| Varilla 4/33        |
+| Varilla 4/33        |
+| Varilla 3/18        |
+| Varilla 3/18        |
+| Varilla 4/34        |
+| Varilla 4/34        |
+| Varilla 3/19        |
+| Varilla 3/19        |
+| Varilla 4/35        |
+| Varilla 4/35        |
+| Ladrillos rojos     |
+| Ladrillos rojos     |
+| Ladrillos grises    |
+| Ladrillos grises    |
+| Block               |
+| Block               |
+| Megablock           |
+| Megablock           |
+| Sillar rosa         |
+| Sillar rosa         |
+| Sillar gris         |
+| Sillar gris         |
+| Cantera blanca      |
+| Cantera blanca      |
+| Cantera gris        |
+| Cantera gris        |
+| Cantera rosa        |
+| Cantera rosa        |
+| Cantera amarilla    |
+| Cantera amarilla    |
+| Recubrimiento P1001 |
+| Recubrimiento P1001 |
+| Recubrimiento P1010 |
+| Recubrimiento P1010 |
+| Recubrimiento P1019 |
+| Recubrimiento P1019 |
+| Recubrimiento P1028 |
+| Recubrimiento P1028 |
+| Recubrimiento P1037 |
+| Recubrimiento P1037 |
+| Cemento             |
+| Cemento             |
+| Arena               |
+| Grava               |
+| Grava               |
+| Gravilla            |
+| Gravilla            |
+| Tezontle            |
+| Tezontle            |
+| Tepetate            |
+| Tepetate            |
+| Tubería 3.5         |
+| Tubería 3.5         |
+| Tubería 4.3         |
+| Tubería 4.3         |
+| Tubería 3.6         |
+| Tubería 3.6         |
+| Tubería 4.4         |
+| Tubería 4.4         |
+| Tubería 3.7         |
+| Tubería 3.7         |
+| Tubería 4.5         |
+| Tubería 4.5         |
+| Tubería 3.8         |
+| Pintura C1010       |
+| Pintura C1010       |
+| Pintura B1020       |
+| Pintura B1020       |
+| Pintura C1011       |
+| Pintura C1011       |
+| Pintura B1021       |
+| Pintura B1021       |
+| Pintura C1011       |
+| Pintura C1011       |
+| Pintura B1021       |
+| Pintura B1021       |
+| Pintura C1012       |
+| Pintura C1012       |
+| Pintura B1022       |
+| Pintura B1022       |
++---------------------+
+86 rows in set (0.00 sec)
+
+mysql> SELECT M.descripcion 
+       FROM entregan E, materiales M 
+       WHERE M.clave = E.clave 
+       AND E.fecha >= '2000-01-01' AND E.fecha < '2001-01-01';
+       
++---------------------+
+| descripcion         |
++---------------------+
+| Recubrimiento P1028 |
+| Pintura B1021       |
+| Cantera blanca      |
+| Sillar gris         |
+| Pintura B1022       |
+| Block               |
+| Tubería 3.6         |
+| Sillar gris         |
+| Varilla 4/34        |
+| Pintura C1010       |
+| Varilla 3/17        |
+| Pintura B1021       |
++---------------------+
+12 rows in set (0.00 sec)
+
+mysql> -- A veces aparecen repetidos porque hay materiales con múltiples entregas;
+mysql> SELECT DISTINCT M.descripcion FROM entregan E, materiales M WHERE M.clave = E.clave AND E.fecha >= '2000-01-01' AND E.fecha < '2001-01-01';
++---------------------+
+| descripcion         |
++---------------------+
+| Recubrimiento P1028 |
+| Pintura B1021       |
+| Cantera blanca      |
+| Sillar gris         |
+| Pintura B1022       |
+| Block               |
+| Tubería 3.6         |
+| Varilla 4/34        |
+| Pintura C1010       |
+| Varilla 3/17        |
++---------------------+
+10 rows in set (0.00 sec)
+
+mysql> -- Obtén los números y denominaciones de los proyectos con las fechas y cantidades de sus entregas, ordenadas por número de proyecto, presentando las fechas de la más reciente a la más antigua.;
+mysql> SELECT E.numero, P.Denominacion, E.fecha, E.cantidad 
+       FROM entregan E, proyectos P 
+       WHERE E.numero = P.Numero ORDER BY E.fecha DESC;
++--------+-------------------------------------------+------------+----------+
+| numero | Denominacion                              | fecha      | cantidad |
++--------+-------------------------------------------+------------+----------+
+|   5007 | Construcción de plaza Magnolias           | 2006-11-21 |        2 |
+|   5018 | Tu cambio por la educación                | 2006-07-12 |       53 |
+|   5017 | Reparación de la carretera del sol        | 2006-06-10 |       93 |
+|   5018 | Tu cambio por la educación                | 2006-04-15 |      302 |
+|   5015 | CIT Yucatan                               | 2006-02-16 |      458 |
+|   5012 | Restauración de instalaciones del CEA     | 2005-12-05 |      645 |
+|   5016 | Ampliación de la carretera a la huasteca  | 2005-11-07 |      356 |
+|   5002 | CIT Campeche                              | 2005-07-03 |       24 |
+|   5016 | Ampliación de la carretera a la huasteca  | 2005-06-07 |      295 |
+|   5007 | Construcción de plaza Magnolias           | 2005-06-06 |      506 |
+|   5008 | Televisa en acción                        | 2005-06-03 |      337 |
+|   5003 | Mexico sin ti no estamos completos        | 2005-04-30 |      576 |
+|   5010 | Construcción de Hospital Infantil         | 2005-04-21 |      116 |
+|   5008 | Televisa en acción                        | 2005-04-03 |       86 |
+|   5012 | Restauración de instalaciones del CEA     | 2004-11-27 |      503 |
+|   5019 | Queretaro limpio                          | 2004-11-19 |       94 |
+|   5006 | Reconstrucción del templo de Guadalupe    | 2004-09-29 |      324 |
+|   5012 | Restauración de instalaciones del CEA     | 2004-08-23 |      312 |
+|   5005 | Infonavit Durango                         | 2004-02-28 |      521 |
+|   5005 | Infonavit Durango                         | 2004-02-07 |      503 |
+|   5002 | CIT Campeche                              | 2003-12-16 |      582 |
+|   5007 | Construcción de plaza Magnolias           | 2003-11-21 |      692 |
+|   5005 | Infonavit Durango                         | 2003-10-12 |       71 |
+|   5011 | Remodelación de aulas del IPP             | 2003-08-28 |      699 |
+|   5009 | Disco Atlantic                            | 2003-07-13 |      467 |
+|   5009 | Disco Atlantic                            | 2003-06-10 |      132 |
+|   5019 | Queretaro limpio                          | 2003-05-05 |      244 |
+|   5000 | Vamos Mexico                              | 2003-03-15 |      177 |
+|   5011 | Remodelación de aulas del IPP             | 2003-02-16 |      697 |
+|   5008 | Televisa en acción                        | 2003-01-21 |      546 |
+|   5004 | Educando en Coahuila                      | 2002-11-14 |      453 |
+|   5014 | Remodelación de Soriana                   | 2002-09-26 |       70 |
+|   5013 | Reparación de la plaza Sonora             | 2002-07-23 |      692 |
+|   5018 | Tu cambio por la educación                | 2002-06-23 |      413 |
+|   5017 | Reparación de la carretera del sol        | 2002-04-17 |      334 |
+|   5008 | Televisa en acción                        | 2002-03-23 |      107 |
+|   5017 | Reparación de la carretera del sol        | 2002-01-31 |      180 |
+|   5011 | Remodelación de aulas del IPP             | 2002-01-13 |      368 |
+|   5006 | Reconstrucción del templo de Guadalupe    | 2002-01-09 |      279 |
+|   5000 | Vamos Mexico                              | 2001-12-13 |      165 |
+|   5010 | Construcción de Hospital Infantil         | 2001-11-19 |      699 |
+|   5018 | Tu cambio por la educación                | 2001-10-24 |      407 |
+|   5002 | CIT Campeche                              | 2001-09-09 |      603 |
+|   5009 | Disco Atlantic                            | 2001-07-28 |      631 |
+|   5006 | Reconstrucción del templo de Guadalupe    | 2001-04-09 |      460 |
+|   5013 | Reparación de la plaza Sonora             | 2001-03-13 |      554 |
+|   5010 | Construcción de Hospital Infantil         | 2001-02-10 |      119 |
+|   5009 | Disco Atlantic                            | 2000-12-07 |      466 |
+|   5019 | Queretaro limpio                          | 2000-11-10 |      107 |
+|   5011 | Remodelación de aulas del IPP             | 2000-09-14 |       72 |
+|   5005 | Infonavit Durango                         | 2000-06-30 |      583 |
+|   5001 | Aztecon                                   | 2000-05-21 |       43 |
+|   5001 | Aztecon                                   | 2000-05-18 |      601 |
+|   5014 | Remodelación de Soriana                   | 2000-04-18 |      623 |
+|   5006 | Reconstrucción del templo de Guadalupe    | 2000-04-13 |      562 |
+|   5017 | Reparación de la carretera del sol        | 2000-03-29 |        8 |
+|   5007 | Construcción de plaza Magnolias           | 2000-03-02 |       13 |
+|   5013 | Reparación de la plaza Sonora             | 2000-02-09 |       63 |
+|   5014 | Remodelación de Soriana                   | 2000-02-04 |      265 |
+|   5004 | Educando en Coahuila                      | 1999-12-18 |      263 |
+|   5014 | Remodelación de Soriana                   | 1999-08-25 |      324 |
+|   5019 | Queretaro limpio                          | 1999-07-13 |      254 |
+|   5014 | Remodelación de Soriana                   | 1999-06-28 |      219 |
+|   5017 | Reparación de la carretera del sol        | 1999-06-26 |       44 |
+|   5015 | CIT Yucatan                               | 1999-05-29 |      540 |
+|   5008 | Televisa en acción                        | 1999-05-05 |      278 |
+|   5012 | Restauración de instalaciones del CEA     | 1999-04-27 |      698 |
+|   5000 | Vamos Mexico                              | 1999-04-07 |      382 |
+|   5010 | Construcción de Hospital Infantil         | 1999-01-25 |      691 |
+|   5013 | Reparación de la plaza Sonora             | 1998-12-16 |      658 |
+|   5010 | Construcción de Hospital Infantil         | 1998-11-17 |      421 |
+|   5015 | CIT Yucatan                               | 1998-11-07 |      585 |
+|   5003 | Mexico sin ti no estamos completos        | 1998-09-12 |      530 |
+|   5016 | Ampliación de la carretera a la huasteca  | 1998-09-02 |      364 |
+|   5001 | Aztecon                                   | 1998-07-28 |      528 |
+|   5019 | Queretaro limpio                          | 1998-05-27 |      199 |
+|   5007 | Construcción de plaza Magnolias           | 1998-04-01 |      331 |
+|   5003 | Mexico sin ti no estamos completos        | 1998-01-12 |      202 |
+|   5013 | Reparación de la plaza Sonora             | 1997-12-03 |      575 |
+|   5016 | Ampliación de la carretera a la huasteca  | 1997-08-09 |      162 |
+|   5012 | Restauración de instalaciones del CEA     | 1997-08-05 |      215 |
+|   5016 | Ampliación de la carretera a la huasteca  | 1997-05-11 |      674 |
+|   5011 | Remodelación de aulas del IPP             | 1997-03-13 |      366 |
+|   5009 | Disco Atlantic                            | 1997-03-13 |       73 |
+|   5018 | Tu cambio por la educación                | 1997-02-09 |      523 |
+|   5015 | CIT Yucatan                               | 1997-01-06 |      272 |
+|   5004 | Educando en Coahuila                      | 0000-00-00 |      152 |
++--------+-------------------------------------------+------------+----------+
+87 rows in set (0.00 sec)
+
+mysql> -- Operadores de cadena;
+mysql> SELECT * FROM productos where Descripcion LIKE 'Si%';
+ERROR 1146 (42S02): Table 'rcortese.productos' doesn't exist
+mysql> SELECT * FROM materiales where Descripcion LIKE 'Si%';
++-------+-------------+--------+----------+
+| clave | descripcion | precio | impuesto |
++-------+-------------+--------+----------+
+|  1120 | Sillar rosa |    100 |       10 |
+|  1130 | Sillar gris |    110 |       11 |
++-------+-------------+--------+----------+
+2 rows in set (0.00 sec)
+
+mysql> -- El % es un comodín para indicar que lo que viene antes o después de este no importan;
+mysql> SELECT * FROM materiales where Descripcion LIKE 'Si';
+Empty set (0.00 sec)
+
+mysql> -- Operador concatenamiento;
+mysql> DECLARE @foo varchar(40);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DECLARE @foo varchar(40)' at line 1
+mysql> DECLARE @bar varchar(40);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DECLARE @bar varchar(40)' at line 1
+mysql> SET @foo = '¿Que resultado';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SET @bar = ' ¿¿¿??? '
+    -> SET @foo += ' obtienes?';
+mysql> PRINT @foo + @bar;
+-- Los prefijos @ establecen la variable a utilizar, DECLARE declara una variable con su tipo y SET agarra la variable DECLARADA y la modifica. Con += le hacemos un "append" a la variable.;
+
+mysql> SELECT Numero FROM entregan WHERE Numero LIKE '___6';
++--------+
+| Numero |
++--------+
+|   5006 |
+|   5006 |
+|   5006 |
+|   5006 |
+|   5016 |
+|   5016 |
+|   5016 |
+|   5016 |
+|   5016 |
++--------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT * FROM entregan;
++-------+------------+--------+------------+----------+
+| clave | rfc        | numero | fecha      | cantidad |
++-------+------------+--------+------------+----------+
+|  1000 | AAAA800101 |   5000 | 2001-12-13 |      165 |
+|  1000 | AAAA800101 |   5019 | 1999-07-13 |      254 |
+|  1010 | BBBB800101 |   5001 | 1998-07-28 |      528 |
+|  1010 | BBBB800101 |   5018 | 1997-02-09 |      523 |
+|  1020 | CCCC800101 |   5002 | 2003-12-16 |      582 |
+|  1020 | CCCC800101 |   5017 | 2000-03-29 |        8 |
+|  1030 | DDDD800101 |   5003 | 1998-01-12 |      202 |
+|  1030 | DDDD800101 |   5016 | 2005-06-07 |      295 |
+|  1040 | EEEE800101 |   5004 | 1999-12-18 |      263 |
+|  1040 | EEEE800101 |   5015 | 1999-05-29 |      540 |
+|  1050 | FFFF800101 |   5005 | 2004-02-07 |      503 |
+|  1050 | FFFF800101 |   5014 | 2000-04-18 |      623 |
+|  1060 | GGGG800101 |   5006 | 2004-09-29 |      324 |
+|  1060 | GGGG800101 |   5013 | 2002-07-23 |      692 |
+|  1070 | HHHH800101 |   5007 | 2006-11-21 |        2 |
+|  1070 | HHHH800101 |   5012 | 2004-11-27 |      503 |
+|  1080 | AAAA800101 |   5008 | 2005-04-03 |       86 |
+|  1080 | AAAA800101 |   5011 | 2003-08-28 |      699 |
+|  1090 | BBBB800101 |   5009 | 1997-03-13 |       73 |
+|  1090 | BBBB800101 |   5010 | 1998-11-17 |      421 |
+|  1100 | CCCC800101 |   5009 | 2000-12-07 |      466 |
+|  1100 | CCCC800101 |   5010 | 2001-11-19 |      699 |
+|  1110 | DDDD800101 |   5008 | 2005-06-03 |      337 |
+|  1110 | DDDD800101 |   5011 | 2002-01-13 |      368 |
+|  1120 | EEEE800101 |   5007 | 2003-11-21 |      692 |
+|  1120 | EEEE800101 |   5012 | 1997-08-05 |      215 |
+|  1130 | FFFF800101 |   5006 | 2000-04-13 |      562 |
+|  1130 | FFFF800101 |   5013 | 2000-02-09 |       63 |
+|  1140 | GGGG800101 |   5005 | 2000-06-30 |      583 |
+|  1140 | GGGG800101 |   5014 | 1999-06-28 |      219 |
+|  1150 | HHHH800101 |   5004 | 2002-11-14 |      453 |
+|  1150 | HHHH800101 |   5015 | 2006-02-16 |      458 |
+|  1160 | AAAA800101 |   5016 | 1997-08-09 |      162 |
+|  1160 | AAAA800101 |   5019 | 2003-05-05 |      244 |
+|  1170 | BBBB800101 |   5017 | 2002-01-31 |      180 |
+|  1170 | BBBB800101 |   5018 | 2006-07-12 |       53 |
+|  1180 | CCCC800101 |   5017 | 2002-04-17 |      334 |
+|  1180 | CCCC800101 |   5018 | 2001-10-24 |      407 |
+|  1190 | DDDD800101 |   5016 | 2005-11-07 |      356 |
+|  1190 | DDDD800101 |   5019 | 2004-11-19 |       94 |
+|  1200 | EEEE800101 |   5000 | 2003-03-15 |      177 |
+|  1200 | EEEE800101 |   5015 | 1998-11-07 |      585 |
+|  1210 | FFFF800101 |   5001 | 2000-05-21 |       43 |
+|  1210 | FFFF800101 |   5014 | 2002-09-26 |       70 |
+|  1220 | GGGG800101 |   5002 | 2005-07-03 |       24 |
+|  1220 | GGGG800101 |   5013 | 1998-12-16 |      658 |
+|  1230 | HHHH800101 |   5003 | 1998-09-12 |      530 |
+|  1230 | HHHH800101 |   5012 | 2004-08-23 |      312 |
+|  1240 | AAAA800101 |   5004 | 0000-00-00 |      152 |
+|  1240 | AAAA800101 |   5011 | 1997-03-13 |      366 |
+|  1250 | BBBB800101 |   5005 | 2003-10-12 |       71 |
+|  1250 | BBBB800101 |   5010 | 1999-01-25 |      691 |
+|  1260 | CCCC800101 |   5006 | 2001-04-09 |      460 |
+|  1260 | CCCC800101 |   5009 | 2001-07-28 |      631 |
+|  1270 | DDDD800101 |   5007 | 2005-06-06 |      506 |
+|  1270 | DDDD800101 |   5008 | 2003-01-21 |      546 |
+|  1280 | EEEE800101 |   5007 | 1998-04-01 |      331 |
+|  1280 | EEEE800101 |   5008 | 2002-03-23 |      107 |
+|  1290 | FFFF800101 |   5006 | 2002-01-09 |      279 |
+|  1290 | FFFF800101 |   5009 | 2003-06-10 |      132 |
+|  1300 | GGGG800101 |   5005 | 2004-02-28 |      521 |
+|  1300 | GGGG800101 |   5010 | 2001-02-10 |      119 |
+|  1310 | HHHH800101 |   5011 | 2000-09-14 |       72 |
+|  1310 | HHHH800101 |   5019 | 1998-05-27 |      199 |
+|  1320 | AAAA800101 |   5012 | 1999-04-27 |      698 |
+|  1320 | AAAA800101 |   5018 | 2002-06-23 |      413 |
+|  1330 | BBBB800101 |   5013 | 2001-03-13 |      554 |
+|  1330 | BBBB800101 |   5017 | 2006-06-10 |       93 |
+|  1340 | CCCC800101 |   5014 | 1999-08-25 |      324 |
+|  1340 | CCCC800101 |   5016 | 1997-05-11 |      674 |
+|  1350 | DDDD800101 |   5015 | 1997-01-06 |      272 |
+|  1360 | EEEE800101 |   5014 | 2000-02-04 |      265 |
+|  1360 | EEEE800101 |   5016 | 1998-09-02 |      364 |
+|  1370 | FFFF800101 |   5013 | 1997-12-03 |      575 |
+|  1370 | FFFF800101 |   5017 | 1999-06-26 |       44 |
+|  1380 | GGGG800101 |   5012 | 2005-12-05 |      645 |
+|  1380 | GGGG800101 |   5018 | 2006-04-15 |      302 |
+|  1390 | HHHH800101 |   5011 | 2003-02-16 |      697 |
+|  1390 | HHHH800101 |   5019 | 2000-11-10 |      107 |
+|  1400 | AAAA800101 |   5000 | 1999-04-07 |      382 |
+|  1400 | AAAA800101 |   5010 | 2005-04-21 |      116 |
+|  1410 | BBBB800101 |   5001 | 2000-05-18 |      601 |
+|  1410 | BBBB800101 |   5009 | 2003-07-13 |      467 |
+|  1420 | CCCC800101 |   5002 | 2001-09-09 |      603 |
+|  1420 | CCCC800101 |   5008 | 1999-05-05 |      278 |
+|  1430 | DDDD800101 |   5003 | 2005-04-30 |      576 |
+|  1430 | DDDD800101 |   5007 | 2000-03-02 |       13 |
++-------+------------+--------+------------+----------+
+87 rows in set (0.00 sec)
+
+
+mysql> SELECT rfc FROM entregan WHERE rfc REGEXP '[A-D%]';
++------------+
+| rfc        |
++------------+
+| AAAA800101 |
+| AAAA800101 |
+| BBBB800101 |
+| BBBB800101 |
+| CCCC800101 |
+| CCCC800101 |
+| DDDD800101 |
+| DDDD800101 |
+| AAAA800101 |
+| BBBB800101 |
+| CCCC800101 |
+| DDDD800101 |
+| DDDD800101 |
+| AAAA800101 |
+| DDDD800101 |
+| DDDD800101 |
+| CCCC800101 |
+| BBBB800101 |
+| CCCC800101 |
+| CCCC800101 |
+| BBBB800101 |
+| BBBB800101 |
+| CCCC800101 |
+| BBBB800101 |
+| AAAA800101 |
+| AAAA800101 |
+| DDDD800101 |
+| AAAA800101 |
+| AAAA800101 |
+| BBBB800101 |
+| CCCC800101 |
+| DDDD800101 |
+| DDDD800101 |
+| AAAA800101 |
+| DDDD800101 |
+| CCCC800101 |
+| CCCC800101 |
+| BBBB800101 |
+| CCCC800101 |
+| BBBB800101 |
+| BBBB800101 |
+| BBBB800101 |
+| CCCC800101 |
+| AAAA800101 |
+| AAAA800101 |
+| AAAA800101 |
+| DDDD800101 |
++------------+
+47 rows in set (0.01 sec)
+
+mysql> SELECT rfc FROM entregan WHERE rfc REGEXP '^[A]';
++------------+
+| rfc        |
++------------+
+| AAAA800101 |
+| AAAA800101 |
+| AAAA800101 |
+| AAAA800101 |
+| AAAA800101 |
+| AAAA800101 |
+| AAAA800101 |
+| AAAA800101 |
+| AAAA800101 |
+| AAAA800101 |
+| AAAA800101 |
+| AAAA800101 |
++------------+
+12 rows in set (0.00 sec)
+
+mysql> 
+mysql> SELECT Clave,RFC,Numero,Fecha,Cantidad
+    -> FROM Entregan
+    -> WHERE Numero Between 5000 and 5010;
+ERROR 1146 (42S02): Table 'rcortese.Entregan' doesn't exist
+mysql> SELECT Clave,RFC,Numero,Fecha,Cantidad
+    -> FROM entregan
+    -> WHERE Numero BETWEEN 5000 AND 5010;
++-------+------------+--------+------------+----------+
+| Clave | RFC        | Numero | Fecha      | Cantidad |
++-------+------------+--------+------------+----------+
+|  1000 | AAAA800101 |   5000 | 2001-12-13 |      165 |
+|  1010 | BBBB800101 |   5001 | 1998-07-28 |      528 |
+|  1020 | CCCC800101 |   5002 | 2003-12-16 |      582 |
+|  1030 | DDDD800101 |   5003 | 1998-01-12 |      202 |
+|  1040 | EEEE800101 |   5004 | 1999-12-18 |      263 |
+|  1050 | FFFF800101 |   5005 | 2004-02-07 |      503 |
+|  1060 | GGGG800101 |   5006 | 2004-09-29 |      324 |
+|  1070 | HHHH800101 |   5007 | 2006-11-21 |        2 |
+|  1080 | AAAA800101 |   5008 | 2005-04-03 |       86 |
+|  1090 | BBBB800101 |   5009 | 1997-03-13 |       73 |
+|  1090 | BBBB800101 |   5010 | 1998-11-17 |      421 |
+|  1100 | CCCC800101 |   5009 | 2000-12-07 |      466 |
+|  1100 | CCCC800101 |   5010 | 2001-11-19 |      699 |
+|  1110 | DDDD800101 |   5008 | 2005-06-03 |      337 |
+|  1120 | EEEE800101 |   5007 | 2003-11-21 |      692 |
+|  1130 | FFFF800101 |   5006 | 2000-04-13 |      562 |
+|  1140 | GGGG800101 |   5005 | 2000-06-30 |      583 |
+|  1150 | HHHH800101 |   5004 | 2002-11-14 |      453 |
+|  1200 | EEEE800101 |   5000 | 2003-03-15 |      177 |
+|  1210 | FFFF800101 |   5001 | 2000-05-21 |       43 |
+|  1220 | GGGG800101 |   5002 | 2005-07-03 |       24 |
+|  1230 | HHHH800101 |   5003 | 1998-09-12 |      530 |
+|  1240 | AAAA800101 |   5004 | 0000-00-00 |      152 |
+|  1250 | BBBB800101 |   5005 | 2003-10-12 |       71 |
+|  1250 | BBBB800101 |   5010 | 1999-01-25 |      691 |
+|  1260 | CCCC800101 |   5006 | 2001-04-09 |      460 |
+|  1260 | CCCC800101 |   5009 | 2001-07-28 |      631 |
+|  1270 | DDDD800101 |   5007 | 2005-06-06 |      506 |
+|  1270 | DDDD800101 |   5008 | 2003-01-21 |      546 |
+|  1280 | EEEE800101 |   5007 | 1998-04-01 |      331 |
+|  1280 | EEEE800101 |   5008 | 2002-03-23 |      107 |
+|  1290 | FFFF800101 |   5006 | 2002-01-09 |      279 |
+|  1290 | FFFF800101 |   5009 | 2003-06-10 |      132 |
+|  1300 | GGGG800101 |   5005 | 2004-02-28 |      521 |
+|  1300 | GGGG800101 |   5010 | 2001-02-10 |      119 |
+|  1400 | AAAA800101 |   5000 | 1999-04-07 |      382 |
+|  1400 | AAAA800101 |   5010 | 2005-04-21 |      116 |
+|  1410 | BBBB800101 |   5001 | 2000-05-18 |      601 |
+|  1410 | BBBB800101 |   5009 | 2003-07-13 |      467 |
+|  1420 | CCCC800101 |   5002 | 2001-09-09 |      603 |
+|  1420 | CCCC800101 |   5008 | 1999-05-05 |      278 |
+|  1430 | DDDD800101 |   5003 | 2005-04-30 |      576 |
+|  1430 | DDDD800101 |   5007 | 2000-03-02 |       13 |
++-------+------------+--------+------------+----------+
+43 rows in set (0.00 sec)
+
+mysql> -- Filtrado con fechas;
+mysql> SELECT Clave,RFC,Numero,Fecha,Cantidad FROM entregan WHERE Numero BETWEEN 5000 AND 5010 AND Fecha BETWEEN 2000 AND 2005;
+Empty set, 5 warnings (0.00 sec)
+
+mysql> SELECT Clave,RFC,Numero,Fecha,Cantidad FROM entregan WHERE Numero BETWEEN 5000 AND 5010 AND fecha BETWEEN 2000 AND 2005;
+Empty set, 5 warnings (0.00 sec)
+
+mysql> SELECT Clave,RFC,Numero,Fecha,Cantidad FROM entregan WHERE Numero BETWEEN 5000 AND 5010 AND fecha BETWEEN 2000-01-01 AND 2005-01-01;
+Empty set, 5 warnings (0.00 sec)
+
+mysql> SELECT clave,rfc,numero,fecha,cantidad FROM entregan WHERE numero BETWEEN 5000 AND 5010 AND fecha BETWEEN 2000-01-01 AND 2005-01-01;
+Empty set, 5 warnings (0.00 sec)
+
+mysql> SELECT clave,rfc,numero,fecha,cantidad FROM entregan WHERE numero BETWEEN 5000 AND 5010 AND fecha >= 2000-01-01;
++-------+------------+--------+------------+----------+
+| clave | rfc        | numero | fecha      | cantidad |
++-------+------------+--------+------------+----------+
+|  1000 | AAAA800101 |   5000 | 2001-12-13 |      165 |
+|  1010 | BBBB800101 |   5001 | 1998-07-28 |      528 |
+|  1020 | CCCC800101 |   5002 | 2003-12-16 |      582 |
+|  1030 | DDDD800101 |   5003 | 1998-01-12 |      202 |
+|  1040 | EEEE800101 |   5004 | 1999-12-18 |      263 |
+|  1050 | FFFF800101 |   5005 | 2004-02-07 |      503 |
+|  1060 | GGGG800101 |   5006 | 2004-09-29 |      324 |
+|  1070 | HHHH800101 |   5007 | 2006-11-21 |        2 |
+|  1080 | AAAA800101 |   5008 | 2005-04-03 |       86 |
+|  1090 | BBBB800101 |   5009 | 1997-03-13 |       73 |
+|  1090 | BBBB800101 |   5010 | 1998-11-17 |      421 |
+|  1100 | CCCC800101 |   5009 | 2000-12-07 |      466 |
+|  1100 | CCCC800101 |   5010 | 2001-11-19 |      699 |
+|  1110 | DDDD800101 |   5008 | 2005-06-03 |      337 |
+|  1120 | EEEE800101 |   5007 | 2003-11-21 |      692 |
+|  1130 | FFFF800101 |   5006 | 2000-04-13 |      562 |
+|  1140 | GGGG800101 |   5005 | 2000-06-30 |      583 |
+|  1150 | HHHH800101 |   5004 | 2002-11-14 |      453 |
+|  1200 | EEEE800101 |   5000 | 2003-03-15 |      177 |
+|  1210 | FFFF800101 |   5001 | 2000-05-21 |       43 |
+|  1220 | GGGG800101 |   5002 | 2005-07-03 |       24 |
+|  1230 | HHHH800101 |   5003 | 1998-09-12 |      530 |
+|  1250 | BBBB800101 |   5005 | 2003-10-12 |       71 |
+|  1250 | BBBB800101 |   5010 | 1999-01-25 |      691 |
+|  1260 | CCCC800101 |   5006 | 2001-04-09 |      460 |
+|  1260 | CCCC800101 |   5009 | 2001-07-28 |      631 |
+|  1270 | DDDD800101 |   5007 | 2005-06-06 |      506 |
+|  1270 | DDDD800101 |   5008 | 2003-01-21 |      546 |
+|  1280 | EEEE800101 |   5007 | 1998-04-01 |      331 |
+|  1280 | EEEE800101 |   5008 | 2002-03-23 |      107 |
+|  1290 | FFFF800101 |   5006 | 2002-01-09 |      279 |
+|  1290 | FFFF800101 |   5009 | 2003-06-10 |      132 |
+|  1300 | GGGG800101 |   5005 | 2004-02-28 |      521 |
+|  1300 | GGGG800101 |   5010 | 2001-02-10 |      119 |
+|  1400 | AAAA800101 |   5000 | 1999-04-07 |      382 |
+|  1400 | AAAA800101 |   5010 | 2005-04-21 |      116 |
+|  1410 | BBBB800101 |   5001 | 2000-05-18 |      601 |
+|  1410 | BBBB800101 |   5009 | 2003-07-13 |      467 |
+|  1420 | CCCC800101 |   5002 | 2001-09-09 |      603 |
+|  1420 | CCCC800101 |   5008 | 1999-05-05 |      278 |
+|  1430 | DDDD800101 |   5003 | 2005-04-30 |      576 |
+|  1430 | DDDD800101 |   5007 | 2000-03-02 |       13 |
++-------+------------+--------+------------+----------+
+42 rows in set, 4 warnings (0.00 sec)
+
+mysql> SELECT rfc,cantidad, fecha,numero
+    -> FROM entregan
+    -> WHERE numero Between 5000 and 5010 AND
+    -> Exists ( SELECT rfc
+    -> FROM proveedores
+    -> WHERE razonsocial LIKE 'La%' and entregan.rfc = proveedores.rfc );
++------------+----------+------------+--------+
+| rfc        | cantidad | fecha      | numero |
++------------+----------+------------+--------+
+| AAAA800101 |      165 | 2001-12-13 |   5000 |
+| AAAA800101 |       86 | 2005-04-03 |   5008 |
+| AAAA800101 |      152 | 0000-00-00 |   5004 |
+| AAAA800101 |      382 | 1999-04-07 |   5000 |
+| AAAA800101 |      116 | 2005-04-21 |   5010 |
+| CCCC800101 |      582 | 2003-12-16 |   5002 |
+| CCCC800101 |      466 | 2000-12-07 |   5009 |
+| CCCC800101 |      699 | 2001-11-19 |   5010 |
+| CCCC800101 |      460 | 2001-04-09 |   5006 |
+| CCCC800101 |      631 | 2001-07-28 |   5009 |
+| CCCC800101 |      603 | 2001-09-09 |   5002 |
+| CCCC800101 |      278 | 1999-05-05 |   5008 |
++------------+----------+------------+--------+
+12 rows in set (0.01 sec)
+
+mysql> -- La consulta devuelve las entregas con el rfc, cantidad, fecha y numero de cuyas razones sociales comienzan con La y poseen numero entre 5000 y 5010;
+mysql> -- El paréntesis después de exists es para mostrar que es una subconsulta;
+
+mysql> -- Usando el operador IN;
+mysql> SELECT rfc,cantidad, fecha,numero 
+       FROM entregan 
+       WHERE numero Between 5000 and 5010 
+       AND entregan.rfc IN (SELECT rfc 
+                            FROM proveedores 
+                            WHERE razonsocial 
+                            LIKE 'La%' AND entregan.rfc = proveedores.rfc );
++------------+----------+------------+--------+
+| rfc        | cantidad | fecha      | numero |
++------------+----------+------------+--------+
+| AAAA800101 |      165 | 2001-12-13 |   5000 |
+| AAAA800101 |       86 | 2005-04-03 |   5008 |
+| AAAA800101 |      152 | 0000-00-00 |   5004 |
+| AAAA800101 |      382 | 1999-04-07 |   5000 |
+| AAAA800101 |      116 | 2005-04-21 |   5010 |
+| CCCC800101 |      582 | 2003-12-16 |   5002 |
+| CCCC800101 |      466 | 2000-12-07 |   5009 |
+| CCCC800101 |      699 | 2001-11-19 |   5010 |
+| CCCC800101 |      460 | 2001-04-09 |   5006 |
+| CCCC800101 |      631 | 2001-07-28 |   5009 |
+| CCCC800101 |      603 | 2001-09-09 |   5002 |
+| CCCC800101 |      278 | 1999-05-05 |   5008 |
++------------+----------+------------+--------+
+12 rows in set (0.00 sec)
+
+mysql> SELECT * FROM proyectos LIMIT 2;
++--------+--------------+
+| numero | denominacion |
++--------+--------------+
+|   5000 | Vamos Mexico |
+|   5001 | Aztecon      |
++--------+--------------+
+2 rows in set (0.00 sec)
+
+mysql> -- Ordena las 2 tuplas por número ascendente, equivalente a TOP 2;
+mysql> SELECT numero FROM proyectos LIMIT 10;
++--------+
+| numero |
++--------+
+|   5000 |
+|   5001 |
+|   5002 |
+|   5003 |
+|   5004 |
+|   5005 |
+|   5006 |
+|   5007 |
+|   5008 |
+|   5009 |
++--------+
+10 rows in set (0.00 sec)
+
+mysql> -- Selecciona 10 tuplas en orden ascendente a mostrar basado en la columna seleccionada;
+mysql> select * from materiales limit 10;
++-------+------------------+--------+----------+
+| clave | descripcion      | precio | impuesto |
++-------+------------------+--------+----------+
+|  1000 | Varilla 3/16     |    100 |       10 |
+|  1010 | Varilla 4/32     |    115 |     11.5 |
+|  1020 | Varilla 3/17     |    130 |       13 |
+|  1030 | Varilla 4/33     |    145 |     14.5 |
+|  1040 | Varilla 3/18     |    160 |       16 |
+|  1050 | Varilla 4/34     |    175 |     17.5 |
+|  1060 | Varilla 3/19     |    190 |       19 |
+|  1070 | Varilla 4/35     |    205 |     20.5 |
+|  1080 | Ladrillos rojos  |     50 |        5 |
+|  1090 | Ladrillos grises |     35 |      3.5 |
++-------+------------------+--------+----------+
+10 rows in set (0.00 sec)
+
+mysql> ALTER TABLE materiales ADD porcentajeimpuesto NUMERIC(6,2);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from materiales limit 10;
++-------+------------------+--------+----------+--------------------+
+| clave | descripcion      | precio | impuesto | porcentajeimpuesto |
++-------+------------------+--------+----------+--------------------+
+|  1000 | Varilla 3/16     |    100 |       10 |               NULL |
+|  1010 | Varilla 4/32     |    115 |     11.5 |               NULL |
+|  1020 | Varilla 3/17     |    130 |       13 |               NULL |
+|  1030 | Varilla 4/33     |    145 |     14.5 |               NULL |
+|  1040 | Varilla 3/18     |    160 |       16 |               NULL |
+|  1050 | Varilla 4/34     |    175 |     17.5 |               NULL |
+|  1060 | Varilla 3/19     |    190 |       19 |               NULL |
+|  1070 | Varilla 4/35     |    205 |     20.5 |               NULL |
+|  1080 | Ladrillos rojos  |     50 |        5 |               NULL |
+|  1090 | Ladrillos grises |     35 |      3.5 |               NULL |
++-------+------------------+--------+----------+--------------------+
+10 rows in set (0.00 sec)
+
+mysql> update materiales SET porcentajeimpuesto = 2*clave/1000;
+Query OK, 45 rows affected (0.02 sec)
+Rows matched: 45  Changed: 45  Warnings: 0
+
+mysql> select * from materiales limit 10;
++-------+------------------+--------+----------+--------------------+
+| clave | descripcion      | precio | impuesto | porcentajeimpuesto |
++-------+------------------+--------+----------+--------------------+
+|  1000 | Varilla 3/16     |    100 |       10 |               2.00 |
+|  1010 | Varilla 4/32     |    115 |     11.5 |               2.02 |
+|  1020 | Varilla 3/17     |    130 |       13 |               2.04 |
+|  1030 | Varilla 4/33     |    145 |     14.5 |               2.06 |
+|  1040 | Varilla 3/18     |    160 |       16 |               2.08 |
+|  1050 | Varilla 4/34     |    175 |     17.5 |               2.10 |
+|  1060 | Varilla 3/19     |    190 |       19 |               2.12 |
+|  1070 | Varilla 4/35     |    205 |     20.5 |               2.14 |
+|  1080 | Ladrillos rojos  |     50 |        5 |               2.16 |
+|  1090 | Ladrillos grises |     35 |      3.5 |               2.18 |
++-------+------------------+--------+----------+--------------------+
+10 rows in set (0.00 sec)
+
+mysql> -- ¿Qué consulta usarías para obtener el importe de las entregas es decir, el total en dinero de lo entregado, basado en la cantidad de la entrega y el precio del material y el impuesto asignado? ;
+
+mysql> CREATE VIEW importe_view (nombre_material, importe) AS SELECT descripcion, e.cantidad*(m.precio+m.impuesto*(porcentajeimpuesto+100)) AS VALUE FROM entregan e, materiales m
+    -> ;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from importe_view;
++---------------------+--------------------+
+| nombre_material     | importe            |
++---------------------+--------------------+
+| Jabón               |             235125 |
+| Pintura B1022       |          232773.75 |
++---------------------+--------------------+
+3915 rows in set (0.00 sec)
+
+mysql> select * from importe_view LIMIT 10;
++-----------------+--------------------+
+| nombre_material | importe            |
++-----------------+--------------------+
+| Jabón           |             235125 |
+| Pintura B1022   |          232773.75 |
+| Pintura C1012   |           232732.5 |
+| Pintura B1021   |          232691.25 |
+| Pintura C1011   |             232650 |
+| Pintura B1021   |          232608.75 |
+| Pintura C1011   |          1348891.5 |
+| Pintura B1020   |          232526.25 |
+| Pintura C1010   |             232485 |
+| Tubería 3.8     | 483483.00000000006 |
++-----------------+--------------------+
+10 rows in set (0.00 sec)
+
+
+mysql> CREATE VIEW top10_materiales AS select * from importe_view ORDER BY importe_view.importe DESC LIMIT 10;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> CREATE VIEW bot10_materiales AS select * from importe_view ORDER BY importe_view.importe ASC LIMIT 10;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> CREATE VIEW 10alfbeticomaterial as select * from materiales m order by m.descripcion  asc limit 10;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from 10alfbeticomaterial;
++-------+------------------+--------+----------+--------------------+
+| clave | descripcion      | precio | impuesto | porcentajeimpuesto |
++-------+------------------+--------+----------+--------------------+
+|  1240 | Arena            |    200 |       20 |               2.48 |
+|  1100 | Block            |     30 |        3 |               2.20 |
+|  1170 | Cantera amarilla |    230 |       23 |               2.34 |
+|  1140 | Cantera blanca   |    200 |       20 |               2.28 |
+|  1150 | Cantera gris     |   1210 |      121 |               2.30 |
+|  1160 | Cantera rosa     |   1420 |      142 |               2.32 |
+|  1230 | Cemento          |    300 |       30 |               2.46 |
+|  1250 | Grava            |    100 |       10 |               2.50 |
+|  1260 | Gravilla         |     90 |        9 |               2.52 |
+|  2000 | Jabón            |    125 |     12.5 |               4.00 |
++-------+------------------+--------+----------+--------------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from bot10_materiales;
++------------------+-------------------+
+| nombre_material  | importe           |
++------------------+-------------------+
+| Block            |             673.2 |
+| Tepetate         | 765.4080195617676 |
+| Ladrillos grises |            785.26 |
+| Megablock        |            897.76 |
+| Ladrillos rojos  |            1121.6 |
+| Tezontle         |           1800.64 |
+| Gravilla         |           2025.36 |
+| Varilla 3/16     |              2240 |
+| Sillar rosa      |            2244.8 |
+| Grava            |              2250 |
++------------------+-------------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from top10_materiales;
++-----------------+--------------------+
+| nombre_material | importe            |
++-----------------+--------------------+
+| Cantera rosa    | 11148658.559999999 |
+| Cantera rosa    | 11148658.559999999 |
+| Cantera rosa    |        11132709.12 |
+| Cantera rosa    |        11116759.68 |
+| Cantera rosa    | 11037012.479999999 |
+| Cantera rosa    | 11037012.479999999 |
+| Cantera rosa    |        11021063.04 |
+| Cantera rosa    | 10749922.559999999 |
+| Cantera rosa    |        10494731.52 |
+| Cantera rosa    | 10287388.799999999 |
++-----------------+--------------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from importe_view;
++---------------------+--------------------+
+| nombre_material     | importe            |
++---------------------+--------------------+
+| Jabón               |             235125 |
+| Pintura B1022       |          232773.75 |
+| Pintura C1012       |           232732.5 |
+| Pintura B1021       |          232691.25 |
+| Pintura C1011       |             232650 |
+| Pintura B1021       |          232608.75 |
+| Pintura C1011       |          1348891.5 |
+| Pintura B1020       |          232526.25 |
+| Pintura C1010       |             232485 |
+| Tubería 3.8         | 483483.00000000006 |
+| Tubería 4.5         |             464805 |
+| Tubería 3.7         | 446133.60000000003 |
+| Tubería 4.4         |           427468.8 |
+| Tubería 3.6         | 408810.60000000003 |
+| Tubería 4.3         |             390159 |
+| Tubería 3.5         |             371514 |
+| Tepetate            |  63146.16161384583 |
+| Tezontle            | 148552.80000000002 |
++---------------------+--------------------+
+3915 rows in set (0.01 sec)
+
+mysql> select * from importe_view where nombre_material LIKE 'Varilla%';
++-----------------+--------------------+
+| nombre_material | importe            |
++-----------------+--------------------+
+| Varilla 4/35    |          379313.55 |
+| Varilla 3/19    |           351496.2 |
+| Varilla 4/34    |          323688.75 |
+| Varilla 3/18    |           295891.2 |
+| Varilla 4/33    | 268103.55000000005 |
+| Varilla 3/17    |           240325.8 |
+| Varilla 4/32    |          212557.95 |
++-----------------+--------------------+
+696 rows in set (0.00 sec)
+
+mysql> Create view importe_vaillas as select * from importe_view where nombre_material LIKE 'Varilla%';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> SELECT e.clave m.descripcion FROM entregan e, materiales m  WHERE e.clave = m.clave EXISTS (SELECT * FROM proyecto WHERE proyectos.denominacion LIKE '%sin ti no estamos completos')
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.descripcion FROM entregan e, materiales m  WHERE e.clave = m.clave EXISTS (SELE' at line 1
+mysql> SELECT e.clave, m.descripcion FROM entregan e, materiales m  WHERE e.clave = m.clave EXISTS (SELECT * FROM proyecto WHERE proyectos.denominacion LIKE '%sin ti no estamos completos')
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'EXISTS (SELECT * FROM proyecto WHERE proyectos.denominacion LIKE '%sin ti no est' at line 1
+mysql> SELECT e.clave, m.descripcion FROM entregan e, materiales m WHERE e.clave = m.clave EXISTS (SELECT * FROM proyecto WHERE proyectos.denominacion LIKE '%sin ti no estamos completos');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'EXISTS (SELECT * FROM proyecto WHERE proyectos.denominacion LIKE '%sin ti no est' at line 1
+mysql> SELECT e.clave, m.descripcion FROM entregan e, materiales m WHERE e.clave = m.clave AND EXISTS (SELECT * FROM proyecto WHERE proyectos.denominacion LIKE '%sin ti no estamos completos');
+ERROR 1146 (42S02): Table 'rcortese.proyecto' doesn't exist
+mysql> SELECT e.clave, m.descripcion FROM entregan e, materiales m WHERE e.clave = m.clave AND EXISTS (SELECT * FROM proyectos WHERE proyectos.denominacion LIKE '%sin ti no estamos completos');
++-------+---------------------+
+| clave | descripcion         |
++-------+---------------------+
+|  1000 | Varilla 3/16        |
+|  1000 | Varilla 3/16        |
+|  1010 | Varilla 4/32        |
+|  1010 | Varilla 4/32        |
+|  1020 | Varilla 3/17        |
+|  1020 | Varilla 3/17        |
+|  1030 | Varilla 4/33        |
+|  1030 | Varilla 4/33        |
+|  1040 | Varilla 3/18        |
+|  1040 | Varilla 3/18        |
+|  1050 | Varilla 4/34        |
+|  1050 | Varilla 4/34        |
+|  1060 | Varilla 3/19        |
+|  1060 | Varilla 3/19        |
+|  1070 | Varilla 4/35        |
+|  1070 | Varilla 4/35        |
+|  1080 | Ladrillos rojos     |
+|  1080 | Ladrillos rojos     |
+|  1090 | Ladrillos grises    |
+|  1090 | Ladrillos grises    |
+|  1100 | Block               |
+|  1100 | Block               |
+|  1110 | Megablock           |
+|  1110 | Megablock           |
+|  1120 | Sillar rosa         |
+|  1120 | Sillar rosa         |
+|  1130 | Sillar gris         |
+|  1130 | Sillar gris         |
+|  1140 | Cantera blanca      |
+|  1140 | Cantera blanca      |
+|  1150 | Cantera gris        |
+|  1150 | Cantera gris        |
+|  1160 | Cantera rosa        |
+|  1160 | Cantera rosa        |
+|  1170 | Cantera amarilla    |
+|  1170 | Cantera amarilla    |
+|  1180 | Recubrimiento P1001 |
+|  1180 | Recubrimiento P1001 |
+|  1190 | Recubrimiento P1010 |
+|  1190 | Recubrimiento P1010 |
+|  1200 | Recubrimiento P1019 |
+|  1200 | Recubrimiento P1019 |
+|  1210 | Recubrimiento P1028 |
+|  1210 | Recubrimiento P1028 |
+|  1220 | Recubrimiento P1037 |
+|  1220 | Recubrimiento P1037 |
+|  1230 | Cemento             |
+|  1230 | Cemento             |
+|  1240 | Arena               |
+|  1240 | Arena               |
+|  1250 | Grava               |
+|  1250 | Grava               |
+|  1260 | Gravilla            |
+|  1260 | Gravilla            |
+|  1270 | Tezontle            |
+|  1270 | Tezontle            |
+|  1280 | Tepetate            |
+|  1280 | Tepetate            |
+|  1290 | Tubería 3.5         |
+|  1290 | Tubería 3.5         |
+|  1300 | Tubería 4.3         |
+|  1300 | Tubería 4.3         |
+|  1310 | Tubería 3.6         |
+|  1310 | Tubería 3.6         |
+|  1320 | Tubería 4.4         |
+|  1320 | Tubería 4.4         |
+|  1330 | Tubería 3.7         |
+|  1330 | Tubería 3.7         |
+|  1340 | Tubería 4.5         |
+|  1340 | Tubería 4.5         |
+|  1350 | Tubería 3.8         |
+|  1360 | Pintura C1010       |
+|  1360 | Pintura C1010       |
+|  1370 | Pintura B1020       |
+|  1370 | Pintura B1020       |
+|  1380 | Pintura C1011       |
+|  1380 | Pintura C1011       |
+|  1390 | Pintura B1021       |
+|  1390 | Pintura B1021       |
+|  1400 | Pintura C1011       |
+|  1400 | Pintura C1011       |
+|  1410 | Pintura B1021       |
+|  1410 | Pintura B1021       |
+|  1420 | Pintura C1012       |
+|  1420 | Pintura C1012       |
+|  1430 | Pintura B1022       |
+|  1430 | Pintura B1022       |
++-------+---------------------+
+87 rows in set (0.01 sec)
+
+mysql> -- Hice la consulta que termina con esa string porque no estaba seguro si el parsing lo haría correctamente con acento;
+mysql> -- Los materiales (clave y descripción) que han sido proporcionados por el proveedor "Acme tools".;
+
+--El RFC de los proveedores que durante el 2000 entregaron en promedio cuando menos 300 materiales.;
+--El Total entregado por cada material en el año 2000.;
+--La Clave del material más vendido durante el 2001. (se recomienda usar una vista intermedia para su solución);
+--Productos que contienen el patrón 'ub' en su nombre.;
+--Denominación y suma del total a pagar para todos los proyectos.;
+--Denominación, RFC y RazonSocial de los proveedores que se suministran materiales al proyecto Televisa en acción que no se encuentran apoyando al proyecto Educando en Coahuila (Solo usando vistas).;
+--Denominación, RFC y RazonSocial de los proveedores que se suministran materiales al proyecto Televisa en acción que no se encuentran apoyando al proyecto Educando en Coahuila (Sin usar vistas, utiliza not in, in o exists).;
+--Costo de los materiales y los Materiales que son entregados al proyecto Televisa en acción cuyos proveedores también suministran materiales al proyecto Educando en Coahuila.;
