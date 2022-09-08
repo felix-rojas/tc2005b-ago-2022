@@ -15,12 +15,13 @@ app.use(bodyParser.urlencoded({extended: false}));
 const rutas_a = require('./routes/a.routes');
 
 app.get('/example', rutas_a);
+app.post('/example', rutas_a);
 
 app.get('/index', (request, response, next) => {
     response.render(path.join(__dirname, 'views', 'index.ejs'));
 });
 
-app.get('/',(request, response, next) => {+
+app.use('/',(request, response, next) => {+
     response.send('Error 404: El recurso solicitado no existe'); //Manda la respuesta
 });
 

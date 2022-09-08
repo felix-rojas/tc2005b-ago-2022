@@ -1,14 +1,19 @@
-const { request } = require('http');
+const bodyParser = require('body-parser');
+const { on } = require('events');
 const path = require('path');
-const miListaNombres = require('../models/a.model');
+const myList = require('../models/a.model');
 
-const miLista = new miListaNombres('Un ejemplo');
+let userList = new myList(Date.now());
 
 exports.action = (request, response, next) => {
-    response.render(path.join(__dirname,'..','views','something.ejs'), {data : miLista});
+    response.render(path.join(__dirname,'..','views','something.ejs'), {names : myList.fetchAll()});
+    console.log(myList.fetchAll());
 };
 
 exports.postSomething = (request,response,next) => {
-    console.log(request.body.form)
-    response.render(path.join(__dirname,'..','views','something.ejs'), request.body);
+    if (request.method === 'POST'){
+        userList.save(request.body.user_input);
+        response.render(path.join(__dirname,'..','views','something.ejs'), {names: myList.fetchAll()});
+        console.log(myList.fetchAll());
+    } 
 };

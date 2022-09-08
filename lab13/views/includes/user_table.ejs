@@ -9,23 +9,23 @@
             </a>
         </p>
     </div>
-    <div class="table-container">
-        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-            <tr>
-                <th>Position</th>
-                <th>Name</th>
-            </tr>
-            <tr>
-                <% '<td>'+toString(data.name)+'</td>' %>
-            </tr>
-        </table>
-    </div>
+    <% if (names.length > 0) { %>
+        <div class="section">
+            <% for (let elemento of names) { %>
+                <div class="box">
+                    <p><%= elemento %></p>
+                </div>
+                <% } %>
+            </div>
+        <% } else { %>
+            <h1>El arreglo está vacío</h1>
+        <% } %>   
     <form method="post">
         <div class="field is-grouped">
             <div class="control is-expanded">
-                <input class="input" type="text" placeholder="Roberto Ejemplo Martínez">
+                <input class="input" type="text" name="user_input" placeholder="Roberto Ejemplo Martínez">
             </div>
-            <button class="button is-primary" id="add_user" value="add">Add</button>
+            <button class="button is-primary" type="submit">Add</button>
         </div>
     </form>
 </div>
