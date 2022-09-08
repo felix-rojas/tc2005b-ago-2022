@@ -6,6 +6,6 @@ const aController = require('../controllers/a.controller');
 
 
 router.get('/example', aController.action);
-router.get('/example2', aController.postSomething);
+router.post('/example', aController.postSomething);
 
 module.exports = router;

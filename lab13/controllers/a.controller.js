@@ -1,14 +1,14 @@
 const { request } = require('http');
 const path = require('path');
-const Winner = require('../models/a.model')
+const miListaNombres = require('../models/a.model');
+
+const miLista = new miListaNombres('Un ejemplo');
 
 exports.action = (request, response, next) => {
-    response.render('view_file', { 
-        atribute_1: 'Data 1', 
-        atribute_2: 'Data 2'
-    });
+    response.render(path.join(__dirname,'..','views','something.ejs'), {data : miLista});
 };
 
 exports.postSomething = (request,response,next) => {
-    response.sendFile(path.join(__dirname,'..','views','something.html'))
+    console.log(request.body.form)
+    response.render(path.join(__dirname,'..','views','something.ejs'), request.body);
 };

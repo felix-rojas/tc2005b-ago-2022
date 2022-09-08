@@ -1,0 +1,31 @@
+<div class="box">
+    <div class="field is-grouped">
+        <p class="control is-expanded">
+            <input class="input" type="text" placeholder="Find a user">
+        </p>
+        <p class="control">
+            <a class="button is-info">
+                Search
+            </a>
+        </p>
+    </div>
+    <div class="table-container">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <tr>
+                <th>Position</th>
+                <th>Name</th>
+            </tr>
+            <tr>
+                <% '<td>'+toString(data.name)+'</td>' %>
+            </tr>
+        </table>
+    </div>
+    <form method="post">
+        <div class="field is-grouped">
+            <div class="control is-expanded">
+                <input class="input" type="text" placeholder="Roberto Ejemplo Martínez">
+            </div>
+            <button class="button is-primary" id="add_user" value="add">Add</button>
+        </div>
+    </form>
+</div>
