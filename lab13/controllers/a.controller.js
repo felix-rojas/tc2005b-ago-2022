@@ -1,14 +1,19 @@
-const { request } = require('http');
+const bodyParser = require('body-parser');
+const { on } = require('events');
 const path = require('path');
-const Winner = require('../models/a.model')
+const myList = require('../models/a.model');
+
+let userList = new myList(Date.now());
 
 exports.action = (request, response, next) => {
-    response.render('view_file', { 
-        atribute_1: 'Data 1', 
-        atribute_2: 'Data 2'
-    });
+    response.render(path.join(__dirname,'..','views','something.ejs'), {names : myList.fetchAll()});
+    console.log(myList.fetchAll());
 };
 
 exports.postSomething = (request,response,next) => {
-    response.sendFile(path.join(__dirname,'..','views','something.html'))
+    if (request.method === 'POST'){
+        userList.save(request.body.user_input);
+        response.render(path.join(__dirname,'..','views','something.ejs'), {names: myList.fetchAll()});
+        console.log(myList.fetchAll());
+    } 
 };

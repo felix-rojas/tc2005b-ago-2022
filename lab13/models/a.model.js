@@ -1,15 +1,18 @@
-const arrayExample = [];
+let arrayNames = [];
 
-module.exports = class Winner {
-    constructor(name_to_assign){
-        this.name = name_to_assign;
+module.exports = class miListaNombres {
+    constructor(creation_date){
+        this.date = creation_date;
     }
-    save(){
-        arrayExample.push(this);
+    save(a_string){
+        arrayNames.push(a_string);
     }
     // returns all objects of the Class
     // static methods are run on the class, not on the instances
     static fetchAll() {
-        return arrayExample;
+        return arrayNames;
+    }
+    static fetchOne(a_number) {
+        return arrayNames[a_number];
     }
 }
