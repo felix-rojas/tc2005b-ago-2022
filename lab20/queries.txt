@@ -1342,10 +1342,242 @@ mysql> -- Hice la consulta que termina con esa string porque no estaba seguro si
 mysql> -- Los materiales (clave y descripción) que han sido proporcionados por el proveedor "Acme tools".;
 
 --El RFC de los proveedores que durante el 2000 entregaron en promedio cuando menos 300 materiales.;
+
+SELECT rfc 
+FROM entregan
+WHERE fecha BETWEEN '2000-01-01' AND '2000-12-31'
+GROUP BY rfc
+HAVING AVG(cantidad) >= 300;
+
++------------+
+| rfc        |
++------------+
+| BBBB800101 |
+| FFFF800101 |
+| GGGG800101 |
++------------+
+3 rows in set (0.00 sec)
+
+
 --El Total entregado por cada material en el año 2000.;
+
+SELECT m.descripcion, SUM(e.cantidad) as total_entregado
+FROM entregan e, materiales m
+WHERE fecha BETWEEN '2000-01-01' AND '2000-12-31'
+AND e.clave = m.clave
+GROUP BY m.descripcion
+ORDER BY SUM(e.cantidad) DESC;
+
++---------------------+-----------------+
+| descripcion         | total_entregado |
++---------------------+-----------------+
+| Pintura B1021       |             708 |
+| Sillar gris         |             625 |
+| Varilla 4/34        |             623 |
+| Cantera blanca      |             583 |
+| Block               |             466 |
+| Pintura C1010       |             265 |
+| Tubería 3.6         |              72 |
+| Recubrimiento P1028 |              43 |
+| Pintura B1022       |              13 |
+| Varilla 3/17        |               8 |
++---------------------+-----------------+
+10 rows in set (0.00 sec)
+
+-- No necesita lo de clave pero así es más fácil cotejar de una lista
+-- De hecho se puede hacer la consulta sólo de la tabla de entregan:
+
+SELECT SUM(e.cantidad) as total_entregado
+FROM entregan e
+WHERE fecha BETWEEN '2000-01-01' AND '2000-12-31'
+GROUP BY clave
+ORDER BY SUM(cantidad) DESC;
+
++-----------------+
+| total_entregado |
++-----------------+
+|             625 |
+|             623 |
+|             601 |
+|             583 |
+|             466 |
+|             265 |
+|             107 |
+|              72 |
+|              43 |
+|              13 |
+|               8 |
++-----------------+
+11 rows in set (0.00 sec)
+
 --La Clave del material más vendido durante el 2001. (se recomienda usar una vista intermedia para su solución);
+
+-- no sé si refiere a veces vendido durante el 2001:
+SELECT clave, COUNT(cantidad) as veces_vendido
+FROM entregan
+WHERE fecha BETWEEN '2001-01-01' AND '2001-12-31'
+GROUP BY clave
+ORDER BY COUNT(cantidad) DESC
+LIMIT 1;
+
++-------+---------------+
+| clave | veces_vendido |
++-------+---------------+
+|  1260 |             2 |
++-------+---------------+
+1 row in set (0.00 sec)
+
+-- o si refiere a la mayor cantidad vendida:
+SELECT clave, SUM(cantidad) as cantidad_vendida
+FROM entregan
+WHERE fecha BETWEEN '2001-01-01' AND '2001-12-31'
+GROUP BY clave
+ORDER BY SUM(cantidad) DESC
+LIMIT 1;
+
++-------+------------------+
+| clave | cantidad_vendida |
++-------+------------------+
+|  1260 |             1091 |
++-------+------------------+
+1 row in set (0.00 sec)
+
 --Productos que contienen el patrón 'ub' en su nombre.;
+
+SELECT *
+FROM materiales m
+WHERE m.descripcion LIKE '%ub%';
++-------+---------------------+--------+----------+
+| clave | descripcion         | precio | impuesto |
++-------+---------------------+--------+----------+
+|  1180 | Recubrimiento P1001 |    200 |       20 |
+|  1190 | Recubrimiento P1010 |    220 |       22 |
+|  1200 | Recubrimiento P1019 |    240 |       24 |
+|  1210 | Recubrimiento P1028 |    250 |       25 |
+|  1220 | Recubrimiento P1037 |    280 |       28 |
+|  1290 | Tubería 3.5         |    200 |       20 |
+|  1300 | Tubería 4.3         |    210 |       21 |
+|  1310 | Tubería 3.6         |    220 |       22 |
+|  1320 | Tubería 4.4         |    230 |       23 |
+|  1330 | Tubería 3.7         |    240 |       24 |
+|  1340 | Tubería 4.5         |    250 |       25 |
+|  1350 | Tubería 3.8         |    260 |       26 |
++-------+---------------------+--------+----------+
+12 rows in set (0.00 sec)
+
 --Denominación y suma del total a pagar para todos los proyectos.;
+
+SELECT pro.denominacion, SUM((e.cantidad)*(m.precio+m.impuesto)) as total_a_pagar
+FROM entregan e, proyectos pro, materiales m
+WHERE pro.numero = e.numero
+GROUP BY pro.denominacion
+ORDER BY total_a_pagar DESC;
+
++-------------------------------------------+--------------------+
+| denominacion                              | total_a_pagar      |
++-------------------------------------------+--------------------+
+| Reparación de la plaza Sonora             | 30383000.800242424 |
+| Restauración de instalaciones del CEA     | 28363045.200226307 |
+| Remodelación de aulas del IPP             |     26319184.80021 |
+| Construcción de Hospital Infantil         |  24454610.40019512 |
+| CIT Yucatan                               | 22171702.000176907 |
+| Ampliación de la carretera a la huasteca  | 22123892.400176525 |
+| Disco Atlantic                            | 21143795.600168705 |
+| Tu cambio por la educación                | 20295175.200161934 |
+| Infonavit Durango                         | 20056127.200160027 |
+| Reconstrucción del templo de Guadalupe    | 19422650.000154972 |
+| Construcción de plaza Magnolias           | 18454505.600147247 |
+| Remodelación de Soriana                   | 17940552.400143147 |
+| Televisa en acción                        | 16183549.600129128 |
+| Mexico sin ti no estamos completos        |  15633739.20012474 |
+| CIT Campeche                              |   14450451.6001153 |
+| Aztecon                                   |  14008212.80011177 |
+| Queretaro limpio                          |  10733255.20008564 |
+| Educando en Coahuila                      | 10374683.200082779 |
+| Vamos Mexico                              |  8653537.600069046 |
+| Reparación de la carretera del sol        |  7876631.600062847 |
++-------------------------------------------+--------------------+
+20 rows in set (0.00 sec)
+
 --Denominación, RFC y RazonSocial de los proveedores que se suministran materiales al proyecto Televisa en acción que no se encuentran apoyando al proyecto Educando en Coahuila (Solo usando vistas).;
+
+CREATE VIEW televisa AS
+SELECT proy.denominacion, e.rfc, p.razonsocial
+FROM entregan e, proyectos proy, proveedores p
+WHERE e.rfc = p.rfc 
+AND e.numero = proy.numero
+AND e.numero = (SELECT numero FROM proyectos WHERE denominacion LIKE 'Televisa en acc%')
+
+CREATE VIEW educoahuila AS
+SELECT proy.denominacion, e.rfc, p.razonsocial
+FROM entregan e, proyectos proy, proveedores p
+WHERE e.rfc = p.rfc 
+AND e.numero = proy.numero
+AND e.numero = (SELECT numero FROM proyectos WHERE denominacion LIKE 'Educando en Coahuila')
+
+SELECT DISTINCT t.denominacion, t.rfc, t.razonsocial
+FROM televisa t
+LEFT JOIN educoahuila e 
+ON t.rfc = e.rfc
+WHERE e.rfc is NULL  
+
++---------------------+------------+-------------+
+| denominacion        | rfc        | razonsocial |
++---------------------+------------+-------------+
+| Televisa en acción  | DDDD800101 | Cecoferre   |
+| Televisa en acción  | CCCC800101 | La Ferre    |
++---------------------+------------+-------------+
+2 rows in set (0.00 sec)
+
+
 --Denominación, RFC y RazonSocial de los proveedores que se suministran materiales al proyecto Televisa en acción que no se encuentran apoyando al proyecto Educando en Coahuila (Sin usar vistas, utiliza not in, in o exists).;
+
+SELECT proy.denominacion, e.rfc, p.razonsocial
+FROM entregan e, proyectos proy, proveedores p
+WHERE e.rfc = p.rfc
+AND proy.numero = e.numero
+AND e.numero = (SELECT numero FROM proyectos WHERE denominacion LIKE 'Televisa en acc%')
+
+AND e.rfc NOT IN (
+SELECT e.rfc
+FROM entregan e, proyectos proy, proveedores p
+WHERE e.numero = proy.numero
+AND e.numero IN (SELECT numero FROM proyectos WHERE denominacion LIKE 'Educando en Coahuila')
+)
+
+GROUP BY proy.denominacion, e.rfc, p.razonsocial;
+
++---------------------+------------+-------------+
+| denominacion        | rfc        | razonsocial |
++---------------------+------------+-------------+
+| Televisa en acción  | CCCC800101 | La Ferre    |
+| Televisa en acción  | DDDD800101 | Cecoferre   |
++---------------------+------------+-------------+
+2 rows in set (0.00 sec)
+
+-- El GROUP BY esta para juntar los repetidos pues junta ambas tablas
+
 --Costo de los materiales y los Materiales que son entregados al proyecto Televisa en acción cuyos proveedores también suministran materiales al proyecto Educando en Coahuila.;
+
+SELECT proy.denominacion, e.rfc, p.razonsocial
+FROM entregan e, proyectos proy, proveedores p
+WHERE e.rfc = p.rfc
+AND proy.numero = e.numero
+AND e.numero = (SELECT numero FROM proyectos WHERE denominacion LIKE 'Televisa en acc%')
+
+AND e.rfc IN (
+SELECT e.rfc
+FROM entregan e, proyectos proy, proveedores p
+WHERE e.numero = proy.numero
+AND e.numero IN (SELECT numero FROM proyectos WHERE denominacion LIKE 'Educando en Coahuila')
+)
+
+GROUP BY proy.denominacion, e.rfc, p.razonsocial;
+
++---------------------+------------+-------------+
+| denominacion        | rfc        | razonsocial |
++---------------------+------------+-------------+
+| Televisa en acción  | AAAA800101 | La fragua   |
+| Televisa en acción  | EEEE800101 | Alvin       |
++---------------------+------------+-------------+
+2 rows in set (0.00 sec)
