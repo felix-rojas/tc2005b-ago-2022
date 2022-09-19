@@ -86,10 +86,172 @@ ORDER BY importe_total desc;
 - Para cada proveedor, indicar su razón social y mostrar la cantidad promedio de cada material entregado, detallando la clave y descripción del material, excluyendo aquellos proveedores para los que la cantidad promedio sea menor a 500.
 
 ```mysql
+SELECT p.razonsocial, AVG(e.cantidad) as promedio_entregas, e.clave, m.descripcion
+FROM proveedores p, entregan e, materiales m
+WHERE e.clave = m.clave
+GROUP BY razonsocial, e.clave
+HAVING promedio_entregas >= 500
+ORDER BY promedio_entregas DESC;
+
++----------------------+-------------------+-------+---------------+
+| razonsocial          | promedio_entregas | clave | descripcion   |
++----------------------+-------------------+-------+---------------+
+| La fragua            |          582.5000 |  1100 | Block         |
+| Oviedo               |          582.5000 |  1100 | Block         |
+| La Ferre             |          582.5000 |  1100 | Block         |
+| Cecoferre            |          582.5000 |  1100 | Block         |
+| Alvin                |          582.5000 |  1100 | Block         |
+| Comex                |          582.5000 |  1100 | Block         |
+| Tabiquera del centro |          582.5000 |  1100 | Block         |
+| Tubasa               |          582.5000 |  1100 | Block         |
+| Comex                |          563.0000 |  1050 | Varilla 4/34  |
+| La fragua            |          563.0000 |  1050 | Varilla 4/34  |
+| Oviedo               |          563.0000 |  1050 | Varilla 4/34  |
+| La Ferre             |          563.0000 |  1050 | Varilla 4/34  |
+| Cecoferre            |          563.0000 |  1050 | Varilla 4/34  |
+| Alvin                |          563.0000 |  1050 | Varilla 4/34  |
+| Tabiquera del centro |          563.0000 |  1050 | Varilla 4/34  |
+| Tubasa               |          563.0000 |  1050 | Varilla 4/34  |
+| La fragua            |          555.5000 |  1320 | Tubería 4.4   |
+| Tubasa               |          555.5000 |  1320 | Tubería 4.4   |
+| Tabiquera del centro |          555.5000 |  1320 | Tubería 4.4   |
+| Comex                |          555.5000 |  1320 | Tubería 4.4   |
+| Alvin                |          555.5000 |  1320 | Tubería 4.4   |
+| Cecoferre            |          555.5000 |  1320 | Tubería 4.4   |
+| La Ferre             |          555.5000 |  1320 | Tubería 4.4   |
+| Oviedo               |          555.5000 |  1320 | Tubería 4.4   |
+| La fragua            |          545.5000 |  1260 | Gravilla      |
+| Tubasa               |          545.5000 |  1260 | Gravilla      |
+| Tabiquera del centro |          545.5000 |  1260 | Gravilla      |
+| Comex                |          545.5000 |  1260 | Gravilla      |
+| Alvin                |          545.5000 |  1260 | Gravilla      |
+| Cecoferre            |          545.5000 |  1260 | Gravilla      |
+| La Ferre             |          545.5000 |  1260 | Gravilla      |
+| Oviedo               |          545.5000 |  1260 | Gravilla      |
+| Tubasa               |          534.0000 |  1410 | Pintura B1021 |
+| Tabiquera del centro |          534.0000 |  1410 | Pintura B1021 |
+| Comex                |          534.0000 |  1410 | Pintura B1021 |
+| Alvin                |          534.0000 |  1410 | Pintura B1021 |
+| Cecoferre            |          534.0000 |  1410 | Pintura B1021 |
+| La Ferre             |          534.0000 |  1410 | Pintura B1021 |
+| Oviedo               |          534.0000 |  1410 | Pintura B1021 |
+| La fragua            |          534.0000 |  1410 | Pintura B1021 |
+| Tabiquera del centro |          526.0000 |  1270 | Tezontle      |
+| Comex                |          526.0000 |  1270 | Tezontle      |
+| Alvin                |          526.0000 |  1270 | Tezontle      |
+| Cecoferre            |          526.0000 |  1270 | Tezontle      |
+| La Ferre             |          526.0000 |  1270 | Tezontle      |
+| Oviedo               |          526.0000 |  1270 | Tezontle      |
+| La fragua            |          526.0000 |  1270 | Tezontle      |
+| Tubasa               |          526.0000 |  1270 | Tezontle      |
+| Tubasa               |          525.5000 |  1010 | Varilla 4/32  |
+| Tabiquera del centro |          525.5000 |  1010 | Varilla 4/32  |
+| Comex                |          525.5000 |  1010 | Varilla 4/32  |
+| Alvin                |          525.5000 |  1010 | Varilla 4/32  |
+| Cecoferre            |          525.5000 |  1010 | Varilla 4/32  |
+| La Ferre             |          525.5000 |  1010 | Varilla 4/32  |
+| Oviedo               |          525.5000 |  1010 | Varilla 4/32  |
+| La fragua            |          525.5000 |  1010 | Varilla 4/32  |
+| Tubasa               |          508.0000 |  1060 | Varilla 3/19  |
+| Tabiquera del centro |          508.0000 |  1060 | Varilla 3/19  |
+| Comex                |          508.0000 |  1060 | Varilla 3/19  |
+| Alvin                |          508.0000 |  1060 | Varilla 3/19  |
+| Cecoferre            |          508.0000 |  1060 | Varilla 3/19  |
+| La Ferre             |          508.0000 |  1060 | Varilla 3/19  |
+| Oviedo               |          508.0000 |  1060 | Varilla 3/19  |
+| La fragua            |          508.0000 |  1060 | Varilla 3/19  |
++----------------------+-------------------+-------+---------------+
+64 rows in set (0.00 sec)
 
 ```
 
 - Mostrar en una solo consulta los mismos datos que en la consulta anterior pero para dos grupos de proveedores: aquellos para los que la cantidad promedio entregada es menor a 370 y aquellos para los que la cantidad promedio entregada sea mayor a 450. 
+
+```mysql
+SELECT p.razonsocial, e.clave, m.descripcion, AVG(e.cantidad) as promedio_entregas
+FROM proveedores p, entregan e, materiales m
+WHERE e.clave = m.clave
+GROUP BY razonsocial, e.clave
+HAVING AVG(e.cantidad) >= 370  AND AVG(e.cantidad) <= 450
+ORDER BY p.razonsocial;
+
++----------------------+-------+---------------------+-------------------+
+| razonsocial          | clave | descripcion         | promedio_entregas |
++----------------------+-------+---------------------+-------------------+
+| Alvin                |  1040 | Varilla 3/18        |          401.5000 |
+| Alvin                |  1080 | Ladrillos rojos     |          392.5000 |
+| Alvin                |  1140 | Cantera blanca      |          401.0000 |
+| Alvin                |  1180 | Recubrimiento P1001 |          370.5000 |
+| Alvin                |  1200 | Recubrimiento P1019 |          381.0000 |
+| Alvin                |  1230 | Cemento             |          421.0000 |
+| Alvin                |  1250 | Grava               |          381.0000 |
+| Alvin                |  1390 | Pintura B1021       |          402.0000 |
+| Alvin                |  1420 | Pintura C1012       |          440.5000 |
+| Cecoferre            |  1040 | Varilla 3/18        |          401.5000 |
+| Cecoferre            |  1080 | Ladrillos rojos     |          392.5000 |
+| Cecoferre            |  1140 | Cantera blanca      |          401.0000 |
+| Cecoferre            |  1180 | Recubrimiento P1001 |          370.5000 |
+| Cecoferre            |  1200 | Recubrimiento P1019 |          381.0000 |
+| Cecoferre            |  1230 | Cemento             |          421.0000 |
+| Cecoferre            |  1250 | Grava               |          381.0000 |
+| Cecoferre            |  1390 | Pintura B1021       |          402.0000 |
+| Cecoferre            |  1420 | Pintura C1012       |          440.5000 |
+| Comex                |  1040 | Varilla 3/18        |          401.5000 |
+| Comex                |  1080 | Ladrillos rojos     |          392.5000 |
+| Comex                |  1140 | Cantera blanca      |          401.0000 |
+| Comex                |  1180 | Recubrimiento P1001 |          370.5000 |
+| Comex                |  1200 | Recubrimiento P1019 |          381.0000 |
+| Comex                |  1230 | Cemento             |          421.0000 |
+| Comex                |  1250 | Grava               |          381.0000 |
+| Comex                |  1390 | Pintura B1021       |          402.0000 |
+| Comex                |  1420 | Pintura C1012       |          440.5000 |
+| La Ferre             |  1040 | Varilla 3/18        |          401.5000 |
+| La Ferre             |  1080 | Ladrillos rojos     |          392.5000 |
+| La Ferre             |  1140 | Cantera blanca      |          401.0000 |
+| La Ferre             |  1180 | Recubrimiento P1001 |          370.5000 |
+| La Ferre             |  1200 | Recubrimiento P1019 |          381.0000 |
+| La Ferre             |  1230 | Cemento             |          421.0000 |
+| La Ferre             |  1250 | Grava               |          381.0000 |
+| La Ferre             |  1390 | Pintura B1021       |          402.0000 |
+| La Ferre             |  1420 | Pintura C1012       |          440.5000 |
+| La fragua            |  1040 | Varilla 3/18        |          401.5000 |
+| La fragua            |  1080 | Ladrillos rojos     |          392.5000 |
+| La fragua            |  1140 | Cantera blanca      |          401.0000 |
+| La fragua            |  1180 | Recubrimiento P1001 |          370.5000 |
+| La fragua            |  1200 | Recubrimiento P1019 |          381.0000 |
+| La fragua            |  1230 | Cemento             |          421.0000 |
+| La fragua            |  1250 | Grava               |          381.0000 |
+| La fragua            |  1390 | Pintura B1021       |          402.0000 |
+| La fragua            |  1420 | Pintura C1012       |          440.5000 |
+| Oviedo               |  1040 | Varilla 3/18        |          401.5000 |
+| Oviedo               |  1080 | Ladrillos rojos     |          392.5000 |
+| Oviedo               |  1140 | Cantera blanca      |          401.0000 |
+| Oviedo               |  1180 | Recubrimiento P1001 |          370.5000 |
+| Oviedo               |  1200 | Recubrimiento P1019 |          381.0000 |
+| Oviedo               |  1230 | Cemento             |          421.0000 |
+| Oviedo               |  1250 | Grava               |          381.0000 |
+| Oviedo               |  1390 | Pintura B1021       |          402.0000 |
+| Oviedo               |  1420 | Pintura C1012       |          440.5000 |
+| Tabiquera del centro |  1040 | Varilla 3/18        |          401.5000 |
+| Tabiquera del centro |  1080 | Ladrillos rojos     |          392.5000 |
+| Tabiquera del centro |  1140 | Cantera blanca      |          401.0000 |
+| Tabiquera del centro |  1180 | Recubrimiento P1001 |          370.5000 |
+| Tabiquera del centro |  1200 | Recubrimiento P1019 |          381.0000 |
+| Tabiquera del centro |  1230 | Cemento             |          421.0000 |
+| Tabiquera del centro |  1250 | Grava               |          381.0000 |
+| Tabiquera del centro |  1390 | Pintura B1021       |          402.0000 |
+| Tabiquera del centro |  1420 | Pintura C1012       |          440.5000 |
+| Tubasa               |  1040 | Varilla 3/18        |          401.5000 |
+| Tubasa               |  1080 | Ladrillos rojos     |          392.5000 |
+| Tubasa               |  1140 | Cantera blanca      |          401.0000 |
+| Tubasa               |  1180 | Recubrimiento P1001 |          370.5000 |
+| Tubasa               |  1200 | Recubrimiento P1019 |          381.0000 |
+| Tubasa               |  1230 | Cemento             |          421.0000 |
+| Tubasa               |  1250 | Grava               |          381.0000 |
+| Tubasa               |  1390 | Pintura B1021       |          402.0000 |
+| Tubasa               |  1420 | Pintura C1012       |          440.5000 |
++----------------------+-------+---------------------+-------------------+
+```
 
 ## Parte 2
 
