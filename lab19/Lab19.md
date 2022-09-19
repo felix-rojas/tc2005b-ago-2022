@@ -28,7 +28,7 @@ AND e.fecha between '1997-01-01' and '1997-12-01';
 - Para cada proveedor, obtener la razón social del proveedor, número de entregas e importe total de las entregas realizadas.
 
 ```mysql
-    SELECT razonsocial, SUM(precio+impuesto) as importe_total, COUNT(e.rfc) as numero_entregas
+    SELECT razonsocial, SUM(precio+impuesto) as importe_total, COUNT(e.cantidad) as numero_entregas
     FROM proveedores p, entregan e, materiales m
     WHERE p.rfc = e.rfc
     GROUP BY razonsocial
@@ -51,8 +51,44 @@ AND e.fecha between '1997-01-01' and '1997-12-01';
 
 - Por cada material obtener la clave y descripción del material, la cantidad total entregada, la mínima cantidad entregada, la máxima cantidad entregada, el importe total de las entregas de aquellos materiales en los que la cantidad promedio entregada sea mayor a 400.
 
+```mysql
+SELECT m.clave, m.descripcion, SUM(e.cantidad) as cantidad_total_entregada, MIN(e.cantidad) as cantidad_minima, MAX(e.cantidad) as cantidad_maxima, SUM((e.cantidad)*(m.impuesto+m.precio)) as importe_total
+FROM materiales m, entregan e
+WHERE m.clave = e.clave
+GROUP BY m.clave
+HAVING AVG(e.cantidad) > 400
+ORDER BY importe_total desc;
+
++-------+----------------+--------------------------+-----------------+-----------------+---------------+
+| clave | descripcion    | cantidad_total_entregada | cantidad_minima | cantidad_maxima | importe_total |
++-------+----------------+--------------------------+-----------------+-----------------+---------------+
+|  1150 | Cantera gris   |                      911 |             453 |             458 |       1212541 |
+|  1380 | Pintura C1011  |                      947 |             302 |             645 |      755232.5 |
+|  1320 | Tubería 4.4    |                     1111 |             413 |             698 |        281083 |
+|  1230 | Cemento        |                      842 |             312 |             530 |        277860 |
+|  1340 | Tubería 4.5    |                      998 |             324 |             674 |        274450 |
+|  1050 | Varilla 4/34   |                     1126 |             503 |             623 |        216755 |
+|  1060 | Varilla 3/19   |                     1016 |             324 |             692 |        212344 |
+|  1140 | Cantera blanca |                      802 |             219 |             583 |        176440 |
+|  1410 | Pintura B1021  |                     1068 |             467 |             601 |        146850 |
+|  1040 | Varilla 3/18   |                      803 |             263 |             540 |        141328 |
+|  1010 | Varilla 4/32   |                     1051 |             523 |             528 |      132951.5 |
+|  1420 | Pintura C1012  |                      881 |             278 |             603 |      121137.5 |
+|  1390 | Pintura B1021  |                      804 |             107 |             697 |        110550 |
+|  1260 | Gravilla       |                     1091 |             460 |             631 |        108009 |
+|  1120 | Sillar rosa    |                      907 |             215 |             692 |         99770 |
+|  1270 | Tezontle       |                     1052 |             506 |             546 |         92576 |
+|  1100 | Block          |                     1165 |             466 |             699 |         38445 |
++-------+----------------+--------------------------+-----------------+-----------------+---------------+
+17 rows in set (0.00 sec)
+```
 
 - Para cada proveedor, indicar su razón social y mostrar la cantidad promedio de cada material entregado, detallando la clave y descripción del material, excluyendo aquellos proveedores para los que la cantidad promedio sea menor a 500.
+
+```mysql
+
+```
+
 - Mostrar en una solo consulta los mismos datos que en la consulta anterior pero para dos grupos de proveedores: aquellos para los que la cantidad promedio entregada es menor a 370 y aquellos para los que la cantidad promedio entregada sea mayor a 450. 
 
 ## Parte 2
