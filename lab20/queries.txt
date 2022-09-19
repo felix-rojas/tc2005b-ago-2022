@@ -1244,16 +1244,6 @@ mysql> select * from importe_view where nombre_material LIKE 'Varilla%';
 mysql> Create view importe_vaillas as select * from importe_view where nombre_material LIKE 'Varilla%';
 Query OK, 0 rows affected (0.02 sec)
 
-mysql> SELECT e.clave m.descripcion FROM entregan e, materiales m  WHERE e.clave = m.clave EXISTS (SELECT * FROM proyecto WHERE proyectos.denominacion LIKE '%sin ti no estamos completos')
-    -> ;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.descripcion FROM entregan e, materiales m  WHERE e.clave = m.clave EXISTS (SELE' at line 1
-mysql> SELECT e.clave, m.descripcion FROM entregan e, materiales m  WHERE e.clave = m.clave EXISTS (SELECT * FROM proyecto WHERE proyectos.denominacion LIKE '%sin ti no estamos completos')
-    -> ;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'EXISTS (SELECT * FROM proyecto WHERE proyectos.denominacion LIKE '%sin ti no est' at line 1
-mysql> SELECT e.clave, m.descripcion FROM entregan e, materiales m WHERE e.clave = m.clave EXISTS (SELECT * FROM proyecto WHERE proyectos.denominacion LIKE '%sin ti no estamos completos');
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'EXISTS (SELECT * FROM proyecto WHERE proyectos.denominacion LIKE '%sin ti no est' at line 1
-mysql> SELECT e.clave, m.descripcion FROM entregan e, materiales m WHERE e.clave = m.clave AND EXISTS (SELECT * FROM proyecto WHERE proyectos.denominacion LIKE '%sin ti no estamos completos');
-ERROR 1146 (42S02): Table 'rcortese.proyecto' doesn't exist
 mysql> SELECT e.clave, m.descripcion FROM entregan e, materiales m WHERE e.clave = m.clave AND EXISTS (SELECT * FROM proyectos WHERE proyectos.denominacion LIKE '%sin ti no estamos completos');
 +-------+---------------------+
 | clave | descripcion         |

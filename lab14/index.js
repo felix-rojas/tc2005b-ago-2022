@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 
+const http = require('http');
 const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
@@ -18,13 +19,14 @@ const bird = require('./routes/bird.routes');
 
 
 // Para manejar sesiones de manera muy práctica, instalaremos el paquete express-session.
-// Para preparar el entorno para trabajar con sesiones, agregamos como middleware el manejo de sesiones:
 
+app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({extended:'false'}));
 
+// Para preparar el entorno para trabajar con sesiones, agregamos como middleware el manejo de sesiones:
 app.use(session({
     secret: '{ajsdnasijbdasndkavjasncdmas}', 
     resave: false, //La sesión no se guardará en cada petición, sino sólo se guardará si algo cambió 
@@ -32,16 +34,16 @@ app.use(session({
 }));
 
 
-app.use('/home',(req, res) => {
-    res.render('index.ejs');
+app.use('/home',(request, response) => {
+    response.render('index.ejs');
   });
 
 
 app.use('/birds', bird);
 
 
-app.use('/',(req, res) => {
-    res.render('error.ejs');
+app.use('/',(request, response) => {
+    response.render('error.ejs');
   });
 
 

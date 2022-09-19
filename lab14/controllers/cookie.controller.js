@@ -1,13 +1,13 @@
 
 // Las cookies viajan en el header de la respuesta, por lo que para definir una cookie, lo podemos hacer en la capa del controlador por medio del método setHeader('Set-Cookie') de la respuesta HTTP:
 
-exports.accion = (request, response, next) => {
-    response.setHeader('Set-Cookie', 'nombre_cookie', 'valor_cookie');
-}
+// exports.accion = (request, response, next) => {
+//     response.setHeader('Set-Cookie', 'nombre_cookie', 'valor_cookie');
+// }
 
 // A partir de que definimos una cookie, el navegador mandará en el header de la petición, todas las cookies que corresponden al sitio. Para acceder a las cookies en el controlador, lo podemos hacer por medio del header 'Cookie' de la petición:
 
-exports.accion = (request, response, next) => {
+exports.getCookie = (request, response, next) => {
     request.get('Cookie');
 }
 
@@ -16,7 +16,7 @@ exports.accion = (request, response, next) => {
 // Además del valor, puedes agregarle más propiedades a la cookie como fecha de expiración, segundos de vida, el dominio al que quieres que se envíe, o la propiedad Secure, que sólo enviará la cookie si viaja por HTTPS.
 // Es importante tener cuidado con el uso de las cookies, ya que los usuarios pueden editarlas desde el navegador. Para que la cookie no pueda ser leída por el código js del navegador, se le puede agregar la propiedad HttpOnly. Esto protege de ataques XSS.
 
-exports.accion = (request, response, next) => {
+exports.setCookie = (request, response, next) => {
     response.setHeader('Set-Cookie', 'nombre_cookie=valor_cookie; HttpOnly');
 }
 
@@ -31,9 +31,11 @@ exports.action = (request, response, next) => {
 
 exports.logout = (request, response, next) => {
     request.session.destroy(() => {
-        response.redirect('/'); //Este código se ejecuta cuando la sesión se elimina.
+        response.redirect('/index'); //Este código se ejecuta cuando la sesión se elimina.
     });
 };
 
 exports.logout = logout;
 exports.accion = accion;
+exports.setCookie = setCookie;
+exports.getCookie = getCookie;

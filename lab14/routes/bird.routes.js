@@ -3,13 +3,13 @@ const router = express.Router()
 
 const birdController = require('../controllers/bird.controller');
 
-router.get('/', (req, res) => {
-    res.render('../views/birds.ejs');
-  })
+router.get('/', birdController.getBird);
+
+router.post('/', birdController.postBird);
 
 // define the about route
-router.get('/about', (req, res) => {
-  res.send('About birds')
+router.get('/about', (request, response) => {
+  response.send('About birds')
 })
 
 module.exports = router;
