@@ -438,21 +438,19 @@ FROM proyectos
 WHERE denominacion 
 LIKE 'Infonavit Durango')
 
-```
 +---------------+
 | @no_infonavit |
 +---------------+
 |          5005 |
 +---------------+
 
-```mysql
 SELECT SUM(e.cantidad) AS cantidades_totales_2001
 FROM proveedores p, entregan e
 WHERE e.numero = @no_infonavit
 AND p.rfc = e.rfc
 AND e.fecha BETWEEN '2001-01-01' AND '2001-12-31'
-```
-No hubo entregas en el 2001
+
+-- No hubo entregas en el 2001
 +-------------------------+
 | cantidades_totales_2001 |
 +-------------------------+
@@ -460,7 +458,6 @@ No hubo entregas en el 2001
 +-------------------------+
 1 row in set (0.00 sec)
 
-```mysql
 SELECT p.razonsocial, e.rfc, SUM(e.cantidad) AS cantidades_totales
 FROM proveedores p, entregan e
 WHERE e.numero = @no_infonavit
@@ -468,7 +465,6 @@ AND p.rfc = e.rfc
 AND e.fecha BETWEEN '2000-01-01' AND '2000-12-31'
 GROUP BY p.razonsocial, e.rfc
 HAVING cantidades_totales > 0;
-```
 +----------------------+------------+--------------------+
 | razonsocial          | rfc        | cantidades_totales |
 +----------------------+------------+--------------------+
